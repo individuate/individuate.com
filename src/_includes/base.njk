@@ -1,0 +1,103 @@
+{%- set thisApp = apps | app(appSlug) if appSlug else null -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- set docTitle -%}{%- if pageTitle -%}{{ pageTitle }}{%- elif thisApp -%}{{ thisApp.name }} · Individuate{%- elif title -%}{{ title }} · Individuate{%- else -%}Individuate{%- endif -%}{%- endset -%}
+<title>{{ docTitle }}</title>
+<meta name="description" content="{{ description or 'Thoughtful apps for particular passions: food, music, writing, health, and the way you talk to yourself. Made by Individuate.' }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ docTitle }}">
+<meta property="og:description" content="{{ description or 'Thoughtful apps for particular passions.' }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="Individuate">
+{% if thisApp %}<meta property="og:image" content="{{ site.url }}/assets/img/{{ thisApp.slug }}-icon-180.png">{% endif %}
+<meta name="theme-color" content="{{ thisApp.wall if thisApp else '#27392f' }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/{{ thisApp.slug if thisApp else 'foodplan' }}-icon-180.png">
+<link rel="preload" href="/assets/fonts/libre-franklin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script>
+// Site settings, read before paint so a stored choice never flashes the other one.
+// Auto is the absence of a stored value; a blocked store just means Auto.
+(() => {
+  const root = document.documentElement;
+  const read = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
+  const theme = read("individuate:theme");
+  if (theme === "light" || theme === "dark") root.dataset.theme = theme;
+  if (read("individuate:motion") === "reduce") root.dataset.motion = "reduce";
+  root.classList.add("js");
+})();
+// Walking between rooms: name only the work that travels, and only while it travels.
+// (A standing view-transition-name clips each icon's shadow into a box.)
+(() => {
+  const room = (url) => new URL(url, location.href).pathname.split("/")[1] || null;
+  const traveller = (from, to) => room(to) || room(from);
+  const name = (slug) => {
+    if (!slug) return null;
+    const el = document.querySelector(`.room-head [data-work="${slug}"]`) || document.querySelector(`[data-work="${slug}"]`);
+    if (el) el.style.viewTransitionName = "work";
+    return el;
+  };
+  const still = () => document.documentElement.dataset.motion === "reduce";
+  addEventListener("pageswap", (e) => {
+    if (e.viewTransition && still()) return e.viewTransition.skipTransition();
+    if (e.viewTransition && e.activation?.entry?.url) name(traveller(location.href, e.activation.entry.url));
+  });
+  addEventListener("pagereveal", (e) => {
+    if (e.viewTransition && still()) return e.viewTransition.skipTransition();
+    const from = navigation?.activation?.from?.url;
+    if (!e.viewTransition || !from) return;
+    const el = name(traveller(from, location.href));
+    e.viewTransition.finished.finally(() => { if (el) el.style.viewTransitionName = ""; });
+  });
+})();
+</script>
+{% if site.telemetryAppID %}<script src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js" data-app-id="{{ site.telemetryAppID }}" defer></script>{% endif %}
+</head>
+<body{% if appSlug %} data-room="{{ appSlug }}"{% endif %}>
+<a class="skip" href="#main">Skip to content</a>
+<header class="signage">
+  <div class="rooms">
+    <a class="house" href="/">Individuate</a>
+    {% if thisApp %}<span class="crumb" aria-hidden="true">/</span><a class="here" href="/{{ thisApp.slug }}/">{{ thisApp.name }}</a>{% endif %}
+  </div>
+  <nav aria-label="Visitor information">
+    {%- set anchor = "#" + thisApp.slug if thisApp else "" %}
+    <a href="/support/{{ anchor }}"{% if page.url == "/support/" %} aria-current="page"{% endif %}>Support</a>
+    <a href="/privacy/{{ anchor }}"{% if page.url == "/privacy/" %} aria-current="page"{% endif %}>Privacy</a>
+  </nav>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="colophon">
+  <span>© {{ site.year }} {{ site.legal }}</span>
+  <nav aria-label="Collection">
+    {% for a in apps %}<a href="/{{ a.slug }}/">{{ a.name }}</a>{% endfor %}
+    <a href="mailto:{{ site.support }}">{{ site.support }}</a>
+  </nav>
+  <div class="settings">
+    <div class="setting" role="group" aria-labelledby="appearance-label">
+      <span id="appearance-label">Site appearance</span>
+      <span class="set">
+        <button type="button" data-setting="theme" data-value="auto" aria-pressed="true">Auto</button>
+        <button type="button" data-setting="theme" data-value="light" aria-pressed="false">Light</button>
+        <button type="button" data-setting="theme" data-value="dark" aria-pressed="false">Dark</button>
+      </span>
+    </div>
+    <div class="setting" role="group" aria-labelledby="motion-label">
+      <span id="motion-label">Motion</span>
+      <span class="set">
+        <button type="button" data-setting="motion" data-value="auto" aria-pressed="true">Auto</button>
+        <button type="button" data-setting="motion" data-value="reduce" aria-pressed="false">Reduced</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

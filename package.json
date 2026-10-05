@@ -1,0 +1,14 @@
+{
+  "name": "individuate.com",
+  "private": true,
+  "description": "individuate.com: the collection of Individuate LLC apps, with support and privacy pages",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --port 8080"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@fontsource-variable/libre-franklin": "^5.2.5"
+  },
+  "type": "module"
+}

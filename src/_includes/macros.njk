@@ -1,0 +1,35 @@
+{% macro work(a, eager=false) -%}
+<span class="frame"><img class="work{% if a.iconShape == 'ios' %} ios{% endif %}" src="{{ a.icon }}" alt="" width="640" height="640" data-work="{{ a.slug }}"{% if not eager %} loading="lazy"{% endif %} decoding="async"></span>
+{%- endmacro %}
+
+{% macro tombstone(a, desc=true) -%}
+<span class="label">
+  <span class="title" style="display:block">{{ a.name }}, <span class="date">{{ a.year }}</span></span>
+  <span class="medium" style="display:block">{{ a.medium }}</span>
+  {% if desc %}<span class="desc" style="display:block">{{ a.line }}</span>{% endif %}
+  <span class="state{% if a.status != 'available' %} wip{% endif %}">{{ a.stateLabel }}</span>
+  <span class="credit" style="display:block">Collection of Individuate LLC</span>
+</span>
+{%- endmacro %}
+
+{% macro arrowDown() -%}
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>
+{%- endmacro %}
+
+{% macro arrowRight() -%}
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5"/></svg>
+{%- endmacro %}
+
+{% macro shuffle() -%}
+<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 5h2.6c1.3 0 2.5.6 3.2 1.7l2.4 3.6c.7 1.1 1.9 1.7 3.2 1.7h1.6M2.5 13h2.6c1.3 0 2.5-.6 3.2-1.7l.4-.6M11.3 6.7l.4-.6c.7-1.1 1.9-1.7 3.2-1.7h.6M14 2.5 15.5 4.4 14 6.3M14 11.1l1.5 1.9-1.5 1.9"/></svg>
+{%- endmacro %}
+
+{# An app's section on the shared support and privacy pages; #slug is its durable anchor. #}
+{% macro appHead(a) -%}
+<h2 class="app-head" id="{{ a.slug }}"><img src="{{ a.icon }}" alt="" width="40" height="40"{% if a.iconShape == 'ios' %} class="ios"{% endif %}>{{ a.name }}</h2>
+<p class="app-meta">{% for r in a.requires %}{{ r[0] }} {{ r[1] }} · {% endfor %}{{ a.stateLabel }} · <a href="/{{ a.slug }}/">About the app</a></p>
+{%- endmacro %}
+
+{% macro jump(apps) -%}
+<nav class="jump" aria-label="Apps on this page">{% for a in apps %}<a href="#{{ a.slug }}">{{ a.name }}</a>{% endfor %}</nav>
+{%- endmacro %}

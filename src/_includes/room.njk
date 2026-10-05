@@ -1,0 +1,64 @@
+---
+layout: base.njk
+---
+{%- from "macros.njk" import work, tombstone, arrowDown, arrowRight -%}
+{%- set a = apps | app(appSlug) -%}
+<section class="room-head">
+  <div class="piece">
+    <span class="light"></span>
+    {{ work(a, true) }}
+  </div>
+  <div>
+    <h1>{{ a.name }}</h1>
+    <div class="label">
+      <p class="lede">{{ lede | safe }}</p>
+      <p class="tomb"><span class="title">{{ a.name }}, <span class="date">{{ a.year }}</span></span><span class="medium" style="display:block">{{ a.medium }}</span></p>
+      {% if a.status == "available" and a.download %}
+        <div class="actions">
+          <a class="plaque" href="{{ a.download }}" data-download="{{ a.slug }}">{{ arrowDown() | safe }}Download for Mac</a>
+          <span class="note">{% for r in a.requires %}{{ r[0] }} {{ r[1] }}{% endfor %} · No account needed</span>
+        </div>
+      {% else %}
+        <p class="state wip">{{ a.stateLabel }}</p>
+        {% if stateNote %}<p class="medium">{{ stateNote | safe }}</p>{% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{{ content | safe }}
+
+<section class="desk" aria-label="Visitor information">
+  <div>
+    <h2>Support</h2>
+    <p>Questions, bugs, and ideas about {{ a.name }} go to {{ site.support }}. The support page answers the common questions first.</p>
+    <a class="go" href="/support/#{{ a.slug }}">Support for {{ a.name }} {{ arrowRight() | safe }}</a>
+  </div>
+  <div>
+    <h2>Privacy</h2>
+    <p>{{ privacyLine | safe }}</p>
+    <a class="go" href="/privacy/#{{ a.slug }}">Privacy policy {{ arrowRight() | safe }}</a>
+  </div>
+  <div>
+    <h2>Particulars</h2>
+    <table class="spec">
+      <tr><th scope="row">Medium</th><td>{{ a.medium }}</td></tr>
+      {% for r in a.requires %}<tr><th scope="row">Requires</th><td>{{ r[0] }} {{ r[1] }}</td></tr>{% endfor %}
+      <tr><th scope="row">Distribution</th><td>{{ distribution }}</td></tr>
+      <tr><th scope="row">Account</th><td>None</td></tr>
+      {% if a.domain %}<tr><th scope="row">Also at</th><td>{{ a.domain }}</td></tr>{% endif %}
+    </table>
+  </div>
+</section>
+
+<section class="also" aria-labelledby="also-h">
+  <h2 id="also-h">Also in the collection</h2>
+  <div class="row">
+    {% for o in apps | others(a.slug) %}
+    <a class="piece" href="/{{ o.slug }}/">
+      {{ work(o) }}
+      {{ tombstone(o, false) }}
+    </a>
+    {% endfor %}
+  </div>
+</section>

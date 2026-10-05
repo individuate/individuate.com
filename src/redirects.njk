@@ -1,0 +1,22 @@
+---
+pagination:
+  data: redirects
+  size: 1
+  alias: r
+permalink: "{{ r.from }}index.html"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ r.name }} · Individuate</title>
+<link rel="canonical" href="{{ site.url }}{{ r.to }}">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={{ r.to }}">
+<script>(() => { const to = {{ r.to | dump | safe }}; location.replace(to.includes("#") ? to : to + location.search + location.hash); })()</script>
+</head>
+<body style="background:#27392f;color:#eceee7;font-family:system-ui,sans-serif;padding:28px">
+<p><a style="color:inherit" href="{{ r.to }}">{{ r.name }} has moved here.</a></p>
+</body>
+</html>

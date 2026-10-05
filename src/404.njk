@@ -1,0 +1,19 @@
+---
+layout: base.njk
+permalink: /404.html
+pageTitle: This room is closed · Individuate
+---
+{%- from "macros.njk" import work, tombstone -%}
+<section class="wall-text">
+  <h1>This room is <b>closed.</b></h1>
+  <p class="lede">There’s nothing hung at this address. The collection is all in one place, just through here.</p>
+</section>
+<section class="hang" aria-label="The collection">
+  {% for a in apps %}
+  <a class="piece" href="/{{ a.slug }}/" style="--i: {{ loop.index0 }}">
+    <span class="light"></span>
+    {{ work(a, true) }}
+    {{ tombstone(a, false) }}
+  </a>
+  {% endfor %}
+</section>

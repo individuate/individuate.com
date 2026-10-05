@@ -1,0 +1,32 @@
+---
+layout: base.njk
+pageTitle: Individuate · Thoughtful apps for particular passions
+---
+{%- from "macros.njk" import work, tombstone -%}
+<section class="wall-text">
+  <h1>Thoughtful apps for <b>particular</b> passions.</h1>
+  <p class="lede">Food, music, writing, your health, and the way you talk to yourself, each with an app of its own. Mostly for the Mac. No accounts, and what you make stays yours.</p>
+</section>
+
+<section class="hang" aria-label="The collection">
+  {% for a in apps %}
+  <a class="piece" href="/{{ a.slug }}/" style="--i: {{ loop.index0 }}">
+    <span class="light"></span>
+    {{ work(a, true) }}
+    {{ tombstone(a) }}
+  </a>
+  {% endfor %}
+</section>
+
+<section class="info-wall" aria-label="Visitor information">
+  <div>
+    <h2>Support</h2>
+    <p>One page with each app's common questions, and one address for everything else.</p>
+    <p><a href="/support/">Support</a> · <a href="mailto:{{ site.support }}">{{ site.support }}</a></p>
+  </div>
+  <div>
+    <h2>Privacy</h2>
+    <p>No accounts, no advertising, no selling data. The apps send anonymous usage counts showing which features get used, and one policy says exactly what leaves your device, app by app.</p>
+    <p><a href="/privacy/">Privacy at Individuate</a></p>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<article class="info">
+  <header class="info-head">
+    <h1>{{ heading or title }}</h1>
+    <p class="sub">{{ sub | safe }}</p>
+    {% if reviewed === false %}<p class="stamp">Draft for review: not yet approved for publication</p>{% endif %}
+  </header>
+  <div class="panel">
+    {{ content | safe }}
+  </div>
+</article>

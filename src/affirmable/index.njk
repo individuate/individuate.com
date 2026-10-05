@@ -1,0 +1,38 @@
+---
+layout: room.njk
+description: "Affirmable: affirmations to keep close, from many traditions, on your iPhone. A new edition is in preparation."
+lede: "Affirmations to keep close, from many traditions, right on your Home Screen. The original came out in 2014; a new edition, rebuilt from the ground up, is in preparation."
+stateNote: "The new edition isn’t on the App Store yet."
+privacyLine: "Your affirmations live on your iPhone and in your own iCloud. Individuate can’t see them."
+distribution: "App Store (new edition in preparation)"
+affirmations:
+  - "This moment will never come again, so I give it my whole heart."
+  - "I am allowed to rest."
+  - "Water is soft, yet it wears away stone. My gentleness is my strength."
+  - "I welcome my feelings as guests, and let them leave when they are ready."
+  - "Fall seven times, stand up eight."
+  - "I bend like bamboo, and I do not break."
+  - "Like mended pottery, I am more beautiful where I have healed."
+  - "I speak to myself as kindly as I would to a friend."
+  - "Every day is a good day."
+  - "I may go slowly, but I do not stop."
+  - "My thoughts pass like clouds, and I remain."
+  - "Today I take one small step, and that is enough."
+  - "I am braver than I feel right now."
+  - "I do not need to be finished to be worthy."
+  - "I have enough, and I am enough."
+---
+{%- from "macros.njk" import shuffle -%}
+<section class="exhibits" aria-label="In this room">
+  <div class="affirmation-wall">
+    <p class="affirmation" id="affirmation" aria-live="polite">{{ affirmations[0] }}</p>
+    <div>
+      <button type="button" class="another" id="another" hidden>{{ shuffle() | safe }}Another one</button>
+    </div>
+    <script type="application/json" id="affirmations">{{ affirmations | dump | safe }}</script>
+  </div>
+  <div class="affirm-copy">
+    <p class="wall-copy">The new edition ships with thirty-six affirmations, new and very old, drawn from many traditions and mixed so no two neighbors come from the same one.</p>
+    <p class="wall-copy soft">Everything you keep syncs through your own iCloud, so your affirmations follow you from device to device and never pass through Individuate.</p>
+  </div>
+</section>
