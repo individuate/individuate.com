@@ -8,8 +8,12 @@
   <span class="medium" style="display:block">{{ a.medium }}</span>
   {% if desc %}<span class="desc" style="display:block">{{ a.line }}</span>{% endif %}
   <span class="state{% if a.status != 'available' %} wip{% endif %}">{{ a.stateLabel }}</span>
-  <span class="credit" style="display:block">Collection of Individuate LLC</span>
 </span>
+{%- endmacro %}
+
+{# The download plaque. The second line is there because "Mac" alone reads as "Apple" to some visitors. #}
+{% macro plaque(a) -%}
+<a class="plaque" href="{{ a.download }}" data-download="{{ a.slug }}">{{ arrowDown() | safe }}<span class="plaque-text"><span>Download for Mac</span><small>Laptops and desktops</small></span></a>
 {%- endmacro %}
 
 {% macro arrowDown() -%}

@@ -1,6 +1,6 @@
 ---
 name: Individuate
-description: The Permanent Collection. Each app hangs as a work on a painted wall, labelled like a museum piece, with Individuate as the credit line.
+description: The Permanent Collection. Each app hangs as a work on a painted wall, labelled like a museum piece, with Individuate only on the room sign and colophon.
 colors:
   corridor-wall: "#27392f"
   corridor-wall-lit: "#36503f"
@@ -114,11 +114,6 @@ typography:
     fontWeight: 400
     lineHeight: 1.5
     fontFeature: "\"tnum\""
-  credit:
-    fontFamily: "Franklin, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "12px"
-    fontWeight: 400
-    lineHeight: 1.45
 rounded:
   plaque: "2px"
   mark: "3px"
@@ -154,9 +149,6 @@ components:
   state-wip:
     textColor: "{colors.corridor-brass}"
     typography: "{typography.label}"
-  credit-line:
-    textColor: "{colors.corridor-ink-faint}"
-    typography: "{typography.credit}"
   stamp:
     backgroundColor: "{colors.corridor-brass}"
     textColor: "{colors.corridor-plaque-ink}"
@@ -179,7 +171,7 @@ components:
 
 **Creative North Star: "The Permanent Collection"**
 
-individuate.com is a small museum. Its apps are not products in a grid; they are works hung on painted walls, each with a tombstone label that gives its title, medium, one line of description, its honest state, and the credit "Collection of Individuate LLC". The home page is the corridor, painted bottle green. Each app's own page is a room, painted in that app's identity colour, so walking from the corridor into a room changes the whole viewport. Individuate itself only appears as the room sign, the credit line, and the colophon.
+individuate.com is a small museum. Its apps are not products in a grid; they are works hung on painted walls, each with a tombstone label that gives its title, medium, one line of description, and its honest state. The home page is the corridor, painted bottle green. Each app's own page is a room, painted in that app's identity colour, so walking from the corridor into a room changes the whole viewport. Individuate itself only appears as the room sign and the colophon.
 
 Everything on the wall is lettered, not boxed. There are no cards, tiles, or panels: the lettering sits straight on the paint, like wall vinyl, and hierarchy comes from scale and weight contrast inside one typeface. Depth comes from light, not from containers: a warm pool of track light above each work and a real two-layer drop shadow beneath it. The one motion idea is light: the lights warm up once on arrival, the attended work's light brightens while the rest of the room dims, and the work's icon walks into its room through a cross-document view transition.
 
@@ -212,7 +204,7 @@ Every room carries the same nine roles, set on `[data-room="<slug>"]` and inheri
 ### Neutral
 - **Ink** (`--ink`): headlines, work titles, links, body on the wall.
 - **Soft Ink** (`--ink-soft`): ledes, medium lines, captions, wayfinding links, table headers.
-- **Faint Ink** (`--ink-faint`): the credit line, colophon, separators in the room sign.
+- **Faint Ink** (`--ink-faint`): the colophon, separators in the room sign.
 - **Hairline**: `--ink` mixed into transparency at 14–20% (`color-mix(in oklab, var(--ink) 18%, transparent)`) for the rule above the visitor-information desk, table rows, and directory rows.
 - **Mat paper** (Music Prism only): the print in that room hangs on a mat of the app's own card colour with a 1px rule.
 
@@ -245,7 +237,6 @@ Every room carries the same nine roles, set on `[data-room="<slug>"]` and inheri
 - **Sign** (700, 15px): the room sign "Individuate" and the small headings on the visitor-information desk.
 - **Label** (400, 14px, 1.45, max 30ch): tombstone medium and description; state lines are 600 at 13–14px.
 - **Figures** (15px, `font-variant-numeric: tabular-nums`): the Particulars table (requirements, distribution) and dates on policy pages.
-- **Credit** (400, 12px, faint ink): "Collection of Individuate LLC".
 
 ### Named Rules
 **The Light-and-Bold Rule.** Display sizes are always weight 300; contrast inside them comes from a single word at 700, never from colour, underline, or a second face.
@@ -260,7 +251,7 @@ The page is a wall: full-bleed paint, content inset by one fluid gutter (clamp(1
 
 - **The hang (corridor):** every work on one centreline, one column per app (five today; gap clamp(24px, 3vw, 48px)), each work clamp(140px, 11.5vw, 196px) square, its label dropped 30px beneath. Three columns under 1240px, two under 1080px. Under 600px the works become a single column, each work 124px beside its label.
 - **The room head:** the work at clamp(180px, 22vw, 320px) on the left, aligned to the bottom of the room title and extended label on the right (max 56ch). Stacks under 820px with the work at 200px (168px under 600px).
-- **Exhibits:** each room hangs its material on its own 12-column arrangement, and no two are alike: Food Plan is a salon hang (8 + 4, then 6 + 6 with the right picture dropped), Music Prism a print room (a matted print at 5 columns beside copy, then two proofs at 6 + 6), Prose Primer a sentence lettered across the wall with a part-of-speech key, Affirmable one affirmation lettered large with "Another one". All collapse to one column under 820px.
+- **Exhibits:** each room hangs its material on its own 12-column arrangement, and no two are alike: Food Plan is a tasting menu (an opening wall at 5 + 6, four numbered courses of capture and card at 7 + 4 on alternating sides, a full-width spread over a 6 + 6 pair, then recipe, nutrition label, and AI setup, closing on a second plaque), Music Prism a print room (a matted print at 5 columns beside copy, then two proofs at 6 + 6), Prose Primer a sentence lettered across the wall with a part-of-speech key, Affirmable one affirmation lettered large with "Another one". All collapse to one column under 820px.
 - **Visitor-information desk:** below every room's exhibits, a hairline rule, then three columns (Support, Privacy, Particulars at 1.2fr). The desk goes to two columns under 1080px with the last spanning, and one under 600px. The corridor's information wall has two columns (Support, Privacy), and one under 600px.
 - **Also in the collection:** the other works in a three-column row at 92px, no track light; one column under 1080px.
 - **Visitor-information pages:** a centred reading column of 46rem on the same painted wall.
@@ -291,17 +282,16 @@ Square works on a rectilinear wall. macOS icons are hung as shipped (with Apple'
 ### Plaque (primary action)
 The one filled object on any wall, mounted like a small engraved plate.
 - **Shape:** near-square (2px).
-- **Fill:** `--plaque` with `--plaque-ink` lettering, 600 at 15px, a 16px stroke icon leading, padding 13px 20px 13px 18px.
+- **Fill:** `--plaque` with `--plaque-ink` lettering, 600 at 15px, a 16px stroke icon leading, padding 13px 20px 13px 18px. A second line, "Laptops and desktops", sits beneath at 400 12px in `--plaque-ink` mixed 78% into the plaque, so no one reads "Mac" as "iPhone". One macro (`plaque` in `macros.njk`) draws every plaque.
 - **Hover / Active:** lifts 1px with a deeper shadow over 0.4s; returns flat on press.
-- **Use:** "Download for Mac" in a room head, beside a soft-ink note of the requirement and "No account needed". Unreleased apps get no plaque; they show the brass state line instead.
+- **Use:** "Download for Mac" in a room head, beside a soft-ink note of the requirement and the app's `note` ("No account needed" unless the app sets its own, e.g. Love Your Food Plan's "No subscription"; never a pricing claim an app's repo forbids). Unreleased apps get no plaque; they show the brass state line instead.
 
 ### Tombstone label (signature)
 Identical anatomy wherever a work hangs, in this order:
 1. Italic title ("*Music Prism*"). No dates.
-2. Medium in soft ink: the platform alone ("macOS", "iOS & iPadOS").
+2. Medium in soft ink: the platform alone ("macOS, for Mac laptops and desktops", "iOS & iPadOS"); Mac apps spell out the hardware because visitors read "Mac" as "Apple" and try them on a phone.
 3. One-line description (omitted in the small "Also in the collection" row and on the 404 hang).
 4. State: a 6px dot in `currentColor` and a 600-weight phrase: ink for "Direct download", brass for anything not yet available.
-5. Credit line, 12px faint ink: **"Collection of Individuate LLC"**.
 
 The room head extends the label: lede in full ink at clamp(18px, 1.45vw, 21px), then title and medium, then the plaque or the brass state with an optional note.
 
@@ -326,7 +316,7 @@ A brass stamp (600, 13px, 6px 12px, 2px corners) on any policy page whose conten
 Figure captions sit 18px under the image at 13px soft ink (max 44ch) with an italic 600 title in full ink on its own line. Every capture is identified as a screen capture, a print, or an illustration.
 
 ### Adding a room
-1. Add the app to `src/_data/apps.js` (slug, name, medium, requires, line, status, stateLabel, icon, iconShape, and download only if it ships).
+1. Add the app to `src/_data/apps.js` (slug, name, medium, requires, line, status, stateLabel, icon, iconShape, download only if it ships, and optionally note, account, subscription).
 2. Create `src/<slug>/` with `<slug>.json` (`{ "appSlug": "<slug>" }`), `index.njk` on the room layout (lede, privacyLine, distribution, optional stateNote). Add the app's section to `src/support.md` and `src/privacy.md` with `appHead`.
 3. Add a `[data-room="<slug>"]` block in `site.css` defining all nine colour roles plus `--light`, `--light-strength`, and `--shadow`, painted from the app's own identity; add `color-scheme: light` and the light-wall adjustments if the wall is light.
 4. Supply the icon as a 640px WebP plus a 180px PNG, each with its provenance sidecar.
@@ -338,7 +328,7 @@ The hang, labels, desk, colophon, redirects, and "Also in the collection" pick t
 
 ### Do:
 - **Do** paint each room in its app's own established identity and express every colour as a role on `[data-room]`.
-- **Do** keep the tombstone anatomy identical everywhere: italic title, medium, description, state, "Collection of Individuate LLC".
+- **Do** keep the tombstone anatomy identical everywhere: italic title, medium, description, state.
 - **Do** set display type at weight 300 and earn emphasis with one word at 700.
 - **Do** set requirements and dates in tabular figures.
 - **Do** letter visitor information straight onto the wall, in the room's colour.

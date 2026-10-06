@@ -15,6 +15,10 @@ reviewed: false
 
 ## Every app
 
+### Will it work on my iPhone or iPad?
+
+Only Affirmable. Love Your Food Plan, Music Prism, Prose Primer, and SteadyTending are Mac apps: they run on Mac laptops and desktops (MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, Mac Pro), not on iPhone or iPad. Download them on your Mac, from that app's page on this site.
+
 ### Do I need an account?
 
 No. None of the apps has an account or a login, and your data isn't stored anywhere but your own device (and, for Affirmable, your own iCloud). Love Your Food Plan does need your own Anthropic API key; see below.

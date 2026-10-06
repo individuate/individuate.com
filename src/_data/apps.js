@@ -1,6 +1,8 @@
 // The collection. One entry per app; every page reads from here.
 // status: "available" | "in-progress" | "new-edition"
 // Only state what each app's own repo confirms. No prices, no invented dates.
+// note: the line beside the download plaque (default "No account needed").
+// account, subscription: Particulars rows (account defaults to "None"; subscription shows only when set).
 
 export default [
   {
@@ -20,12 +22,15 @@ export default [
     slug: "foodplan",
     wall: "#8f3c27", // matches [data-room="foodplan"] --wall in site.css
     name: "Love Your Food Plan",
-    medium: "macOS",
+    medium: "macOS, for Mac laptops and desktops",
     requires: [["macOS", "15.0 or later"]],
     passion: "food",
     line: "Meal plans that start with what you love, built around your diet, restrictions, and kitchen.",
     status: "available",
     stateLabel: "Direct download",
+    note: "No subscription",
+    account: "Only your own Anthropic key",
+    subscription: "None",
     download: "https://github.com/individuate/loveyourfoodplan.com/releases/latest/download/LoveYourFoodPlan.dmg",
     domain: "loveyourfoodplan.com",
     icon: "/assets/img/foodplan-icon.webp",
@@ -35,7 +40,7 @@ export default [
     slug: "musicprism",
     wall: "#f4efe4", // matches [data-room="musicprism"] --wall in site.css
     name: "Music Prism",
-    medium: "macOS",
+    medium: "macOS, for Mac laptops and desktops",
     requires: [["macOS", "10.15 or later"]],
     passion: "music",
     line: "One chord everywhere it lives, on guitar, bass, ukulele, and piano.",
@@ -50,7 +55,7 @@ export default [
     slug: "proseprimer",
     wall: "#1c1b19", // matches [data-room="proseprimer"] --wall in site.css
     name: "Prose Primer",
-    medium: "macOS",
+    medium: "macOS, for Mac laptops and desktops",
     requires: [["macOS", "15.0 or later"]],
     passion: "writing",
     line: "Grammar’s vocabulary, taught on the sentences you’re actually reading and writing.",
@@ -63,7 +68,7 @@ export default [
     slug: "steadytending",
     wall: "#252f4c", // matches [data-room="steadytending"] --wall in site.css
     name: "SteadyTending",
-    medium: "macOS",
+    medium: "macOS, for Mac laptops and desktops",
     requires: [["macOS", "15.0 or later"]],
     passion: "health",
     line: "Your genetics, your labs over the years, and the research you care about, read together on your own Mac.",

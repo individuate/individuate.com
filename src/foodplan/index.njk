@@ -5,23 +5,134 @@ lede: "Meal planning that starts with what you love. AI-powered meal plans built
 privacyLine: "Your plans and recipes stay on your Mac. Text goes to Anthropic, with your own API key, only when you ask the app to generate something."
 distribution: "Direct download, signed and notarized; updates itself"
 ---
-<section class="exhibits" aria-label="In this room">
-  <div class="salon">
-    <figure class="exhibit a">
-      <img src="/assets/img/foodplan-meal-plan.webp" alt="Love Your Food Plan showing a week's meal plan called Peruvian Bright Weeknights, with breakfast, lunch, and dinner suggestions in a grid." width="1800" height="1172" loading="lazy" decoding="async">
-      <figcaption><b>A week, planned</b>Meal plan view. Screen capture from the app.</figcaption>
-    </figure>
+{%- from "macros.njk" import plaque -%}
+{%- set a = apps | app(appSlug) -%}
+<section class="exhibits menu" aria-label="In this room">
+  <div class="menu-open">
+    <h2><b>Love</b> your food plan!</h2>
     <div class="copy">
-      <p class="wall-copy">When you want to change how you eat, starting with recipes isn’t helpful. They’re too detailed, and recipe websites are cluttered and full of ads.</p>
-      <p class="wall-copy soft">Start instead with what you like and what you need to avoid. Let AI suggest breakfasts, lunches, dinners, and snacks that sound like you’d love them, then turn the ones you like into recipes.</p>
+      <p class="wall-copy">When you want to change your food plan, starting with recipes isn’t helpful. They’re too detailed, you have to sift through a million ingredients to check for restrictions, and recipe websites are notoriously cluttered, difficult to use, and filled with ads.</p>
+      <p class="wall-copy soft">Instead, <b>start with what you like and what you need to avoid,</b> and use AI to generate meal plans for you. Maybe you want to make leftovers, maybe you need some child-friendly options. When you see meals you like, you can generate recipes.</p>
+      <p class="wall-copy">If you’ve ever struggled to change your food plan and keep reverting to the same old things you’re already <s>familiar</s> bored with, it’s exciting to see breakfasts, lunches, dinners, and snacks that sound like you’d love them!</p>
     </div>
-    <figure class="exhibit b">
-      <img src="/assets/img/foodplan-preferences.webp" alt="The food preferences screen, where you mark foods you love, like, or avoid." width="1600" height="1140" loading="lazy" decoding="async">
-      <figcaption><b>What you love, what you don’t</b>Food preferences. Screen capture from the app.</figcaption>
+  </div>
+
+  <ol class="courses" aria-label="Four steps to a meal plan">
+    <li class="course">
+      <figure class="exhibit">
+        <img src="/assets/img/foodplan-approaches.webp" alt="The Dietary Approaches window, with chips for approaches such as Anti-Inflammatory, Low-Glycemic, and Mediterranean selected, plus a custom approach, Bright Line Eating." width="1800" height="984" loading="lazy" decoding="async">
+        <figcaption><b>Dietary approaches</b>Screen capture from the app.</figcaption>
+      </figure>
+      <div class="card">
+        <p class="step">Step 1</p>
+        <h3>Start with your big-picture dietary approach</h3>
+        <p>Just click the ones you want to use. Click the info button to get a description; maybe you’ll want to try a new approach. Add custom approaches, and the AI will figure them out.</p>
+      </div>
+    </li>
+    <li class="course flip">
+      <figure class="exhibit">
+        <img src="/assets/img/foodplan-restrictions.webp" alt="The Dietary Restrictions window, with Gluten set to Mild and Histamine set to Moderate among common restrictions including Halal and Kosher." width="1800" height="973" loading="lazy" decoding="async">
+        <figcaption><b>Dietary restrictions</b>Screen capture from the app.</figcaption>
+      </figure>
+      <div class="card">
+        <p class="step">Step 2</p>
+        <h3>Set your dietary restrictions</h3>
+        <p>Click the ones that apply to you or your family. Set each to Mild, Moderate, or Strict, and the meal selections will match. Custom restrictions welcome.</p>
+      </div>
+    </li>
+    <li class="course">
+      <figure class="exhibit">
+        <img src="/assets/img/foodplan-preferences.webp" alt="The food preferences screen: a grid of vegetables, each with buttons from Strong Like to Strong Dislike, beside food groups with summary counts." width="1600" height="1140" loading="lazy" decoding="async">
+        <figcaption><b>Food preferences</b>Screen capture from the app.</figcaption>
+      </figure>
+      <div class="card">
+        <p class="step">Step 3</p>
+        <h3>Set your detailed food preferences</h3>
+        <p>In five minutes you can design a set of preferences that guarantees you’ll like the meals suggested. Click once for each food, from Strong Like to Strong Dislike.</p>
+      </div>
+    </li>
+    <li class="course flip">
+      <figure class="exhibit">
+        <img src="/assets/img/foodplan-new-meal-plan.webp" alt="The New Meal Plan window, with options for cooking complexity, servings, how many of each meal, cuisines, leftovers, child-friendly options, and special instructions." width="1800" height="1278" loading="lazy" decoding="async">
+        <figcaption><b>New meal plan</b>Screen capture from the app.</figcaption>
+      </figure>
+      <div class="card">
+        <p class="step">Step 4</p>
+        <h3>Generate a meal plan</h3>
+        <p>Set cooking complexity from minimal assembly to elaborate weekend cooking. Choose how many breakfasts, lunches, dinners, and snacks. Add leftovers, child-friendly options, cuisine preferences, or special instructions.</p>
+        <p>Click Generate and wait ten seconds.</p>
+        <img class="wait" src="/assets/img/foodplan-generating.webp" alt="A progress bar reading Generating your meal plan." width="1182" height="164" loading="lazy" decoding="async">
+      </div>
+    </li>
+  </ol>
+
+  <div class="spread">
+    <div class="spread-head">
+      <h2>Look at all these awesome meals!</h2>
+      <p>If one doesn’t appeal, click New Suggestion and Claude will make another, avoiding ingredients already used in the surrounding meals. Use it as a weekly plan or just a reference for new ideas.</p>
+    </div>
+    <figure class="exhibit">
+      <img src="/assets/img/foodplan-meal-plan.webp" alt="A week’s meal plan called Peruvian Bright Weeknights, with breakfast, lunch, and dinner, each offering three meals with their ingredients and buttons for a new suggestion or a recipe." width="1800" height="1172" loading="lazy" decoding="async">
+      <figcaption><b>Peruvian Bright Weeknights</b>A generated meal plan. Screen capture from the app.</figcaption>
     </figure>
-    <figure class="exhibit c">
-      <img src="/assets/img/foodplan-recipe.webp" alt="A generated recipe for Peruvian lemongrass chicken thighs with roasted potatoes and kale, with ingredients and steps." width="1800" height="1172" loading="lazy" decoding="async">
-      <figcaption><b>From a meal to a recipe</b>Recipe view, ready to revise or print. Screen capture from the app.</figcaption>
+    <div class="pair">
+      <figure class="exhibit">
+        <img src="/assets/img/foodplan-carnivore.webp" alt="Carnivore lunches and dinners, including Coconut Aminos Chicken Bowl, Bacon-Wrapped Asparagus with Eggs, and Pan-Seared Lamb Chops with Asparagus." width="1800" height="704" loading="lazy" decoding="async">
+        <figcaption><b>Committed carnivore? Covered.</b>A carnivore plan. Screen capture from the app.</figcaption>
+      </figure>
+      <figure class="exhibit">
+        <img src="/assets/img/foodplan-vegan.webp" alt="Vegan lunches and dinners, including Hummus Veggie Tortilla Wraps, Red Lentil Soup, and Black Bean Corn Skillet Tacos." width="1800" height="734" loading="lazy" decoding="async">
+        <figcaption><b>Fully vegan? Every meal fits.</b>A vegan plan. Screen capture from the app.</figcaption>
+      </figure>
+    </div>
+    <p class="between">And everything in between.</p>
+  </div>
+
+  <div class="course flip">
+    <figure class="exhibit">
+      <img src="/assets/img/foodplan-recipe.webp" alt="A recipe for Peruvian lemongrass chicken thighs with roasted potatoes and kale, with ingredients in two columns, eight numbered steps, and prep and cook times." width="1800" height="1172" loading="lazy" decoding="async">
+      <figcaption><b>From a meal to a recipe</b>Recipe view. Screen capture from the app.</figcaption>
     </figure>
+    <div class="card">
+      <h3>Generate recipes</h3>
+      <p>Click Generate Recipe and get a detailed recipe with ingredients, cooking steps, and no clutter. Recipes are editable, so you can tweak them to your taste.</p>
+      <p>Prints great too: recipes and meal plans both export to clean PDFs. Click the download icon in the upper right corner.</p>
+    </div>
+  </div>
+
+  <div class="course facts">
+    <figure class="exhibit">
+      <img src="/assets/img/foodplan-nutrition-label.webp" alt="An FDA-style Nutrition Facts label for the lemongrass chicken recipe, with per-serving and per-recipe columns for calories, macronutrients, vitamin D, calcium, iron, and potassium." width="1094" height="1298" loading="lazy" decoding="async">
+      <figcaption><b>Nutrition Facts</b>Estimated for one recipe. Screen capture from the app.</figcaption>
+    </figure>
+    <div class="card">
+      <h3>Nutrition labels for every recipe</h3>
+      <p>Click Estimate Nutrition on any recipe and get a complete FDA-style Nutrition Facts label: calories, fat, protein, carbs, fiber, sodium, vitamins, and minerals, per serving and per recipe.</p>
+      <p>Values are estimated from USDA FoodData Central, the same database dietitians use. It’s not a substitute for medical advice, but it’s a solid way to understand what you’re actually eating, and to make better choices without guessing.</p>
+      <p>Great for tracking macros, watching sodium, comparing recipes side by side, or just being more intentional about what goes on your plate.</p>
+    </div>
+  </div>
+
+  <div class="course flip">
+    <figure class="exhibit">
+      <img src="/assets/img/foodplan-api-key.webp" alt="The Set Up Your AI Provider panel, with four steps: create an Anthropic account, add credits, create an API key, and paste it into the app." width="1600" height="773" loading="lazy" decoding="async">
+      <figcaption><b>Set up your AI provider</b>Screen capture from the app.</figcaption>
+    </figure>
+    <div class="card">
+      <h3>Get your own AI for food plans</h3>
+      <p>You’ll connect the app to Claude, the AI. It’s simple, and the app steps you through it: you create an account with Anthropic, the company behind Claude, and buy a minimum of $5 in credits. No subscription, and credits last for a year.</p>
+      <p>The app tracks the costs for you. A typical meal plan costs a few cents, and a recipe usually a penny or two, so $5 goes a long way. You pay Anthropic directly; Individuate never sees your data or takes a cut.</p>
+    </div>
+  </div>
+
+  <div class="menu-close">
+    <h2>Download for Mac</h2>
+    <p>For Mac laptops and desktops, not iPhone or iPad. Old-school macOS app. No login. No cloud. Completely free, with no demo mode and no ads.</p>
+    {% if a.download %}
+    <div class="actions">
+      {{ plaque(a) }}
+      <span class="note">{% for r in a.requires %}{{ r[0] }} {{ r[1] }}{% endfor %} · {{ a.note or "No account needed" }}</span>
+    </div>
+    {% endif %}
   </div>
 </section>
