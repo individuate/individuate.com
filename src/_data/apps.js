@@ -7,9 +7,8 @@ export default [
     slug: "affirmable",
     wall: "#d2ae52", // matches [data-room="affirmable"] --wall in site.css
     name: "Affirmable",
-    year: "2014",
-    medium: "Application for iPhone",
-    requires: [["iOS", "26 or later"]],
+    medium: "iOS & iPadOS",
+    requires: [["iOS & iPadOS", "26 or later"]],
     passion: "self-talk",
     line: "Affirmations to keep close, from many traditions, right on your Home Screen.",
     status: "new-edition",
@@ -21,8 +20,7 @@ export default [
     slug: "foodplan",
     wall: "#8f3c27", // matches [data-room="foodplan"] --wall in site.css
     name: "Love Your Food Plan",
-    year: "2026",
-    medium: "Native application for macOS",
+    medium: "macOS",
     requires: [["macOS", "15.0 or later"]],
     passion: "food",
     line: "Meal plans that start with what you love, built around your diet, restrictions, and kitchen.",
@@ -37,8 +35,7 @@ export default [
     slug: "musicprism",
     wall: "#f4efe4", // matches [data-room="musicprism"] --wall in site.css
     name: "Music Prism",
-    year: "2026",
-    medium: "Application for macOS",
+    medium: "macOS",
     requires: [["macOS", "10.15 or later"]],
     passion: "music",
     line: "One chord everywhere it lives, on guitar, bass, ukulele, and piano.",
@@ -53,8 +50,7 @@ export default [
     slug: "proseprimer",
     wall: "#1c1b19", // matches [data-room="proseprimer"] --wall in site.css
     name: "Prose Primer",
-    year: "in progress",
-    medium: "Native application for macOS",
+    medium: "macOS",
     requires: [["macOS", "15.0 or later"]],
     passion: "writing",
     line: "Grammar’s vocabulary, taught on the sentences you’re actually reading and writing.",
@@ -67,8 +63,7 @@ export default [
     slug: "steadytending",
     wall: "#252f4c", // matches [data-room="steadytending"] --wall in site.css
     name: "SteadyTending",
-    year: "in progress",
-    medium: "Application for macOS",
+    medium: "macOS",
     requires: [["macOS", "15.0 or later"]],
     passion: "health",
     line: "Your genetics, your labs over the years, and the research you care about, read together on your own Mac.",

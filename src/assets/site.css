@@ -407,7 +407,6 @@ main { flex: 1; }
   line-height: 1.45;
 }
 .label .title { font-size: 18px; font-weight: 600; font-style: italic; letter-spacing: -.01em; line-height: 1.2; }
-.label .date { font-style: normal; font-weight: 400; color: var(--ink-soft); }
 .label .medium { margin-top: 6px; color: var(--ink-soft); }
 .label .desc { margin-top: 10px; }
 .state {

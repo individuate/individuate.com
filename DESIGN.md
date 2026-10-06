@@ -179,7 +179,7 @@ components:
 
 **Creative North Star: "The Permanent Collection"**
 
-individuate.com is a small museum. Its apps are not products in a grid; they are works hung on painted walls, each with a tombstone label that gives its title, date, medium, one line of description, its honest state, and the credit "Collection of Individuate LLC". The home page is the corridor, painted bottle green. Each app's own page is a room, painted in that app's identity colour, so walking from the corridor into a room changes the whole viewport. Individuate itself only appears as the room sign, the credit line, and the colophon.
+individuate.com is a small museum. Its apps are not products in a grid; they are works hung on painted walls, each with a tombstone label that gives its title, medium, one line of description, its honest state, and the credit "Collection of Individuate LLC". The home page is the corridor, painted bottle green. Each app's own page is a room, painted in that app's identity colour, so walking from the corridor into a room changes the whole viewport. Individuate itself only appears as the room sign, the credit line, and the colophon.
 
 Everything on the wall is lettered, not boxed. There are no cards, tiles, or panels: the lettering sits straight on the paint, like wall vinyl, and hierarchy comes from scale and weight contrast inside one typeface. Depth comes from light, not from containers: a warm pool of track light above each work and a real two-layer drop shadow beneath it. The one motion idea is light: the lights warm up once on arrival, the attended work's light brightens while the rest of the room dims, and the work's icon walks into its room through a cross-document view transition.
 
@@ -240,7 +240,7 @@ Every room carries the same nine roles, set on `[data-room="<slug>"]` and inheri
 - **Section** (300, clamp(26px, 2.4vw, 32px), 1.15): section heads inside visitor-information pages; questions under them are 17px at 650.
 - **Wall copy** (400, clamp(19px, 1.6vw, 24px), 1.42, max 36ch): the paragraphs hung beside a room's exhibit; a second paragraph steps down to soft ink.
 - **Exhibit lettering**: Affirmable's affirmation (300, clamp(36px, 6.2vw, 96px), max 17ch) and Prose Primer's sentence (400, clamp(30px, 4.4vw, 66px), max 22ch) are lettered at display scale as the exhibit itself.
-- **Work title** (600 italic, 18px; 16px in rooms and small rows): the title in every tombstone and figure caption, followed by the date in upright 400 soft ink.
+- **Work title** (600 italic, 18px; 16px in rooms and small rows): the title in every tombstone and figure caption.
 - **Body** (400, 17px, 1.5; 16px under 600px; 1.6 and max 68ch in policy text).
 - **Sign** (700, 15px): the room sign "Individuate" and the small headings on the visitor-information desk.
 - **Label** (400, 14px, 1.45, max 30ch): tombstone medium and description; state lines are 600 at 13–14px.
@@ -297,8 +297,8 @@ The one filled object on any wall, mounted like a small engraved plate.
 
 ### Tombstone label (signature)
 Identical anatomy wherever a work hangs, in this order:
-1. Italic title, comma, upright date ("*Music Prism,* 2026"; an unreleased work's date reads "in progress").
-2. Medium in soft ink ("Application for macOS").
+1. Italic title ("*Music Prism*"). No dates.
+2. Medium in soft ink: the platform alone ("macOS", "iOS & iPadOS").
 3. One-line description (omitted in the small "Also in the collection" row and on the 404 hang).
 4. State: a 6px dot in `currentColor` and a 600-weight phrase: ink for "Direct download", brass for anything not yet available.
 5. Credit line, 12px faint ink: **"Collection of Individuate LLC"**.
@@ -326,7 +326,7 @@ A brass stamp (600, 13px, 6px 12px, 2px corners) on any policy page whose conten
 Figure captions sit 18px under the image at 13px soft ink (max 44ch) with an italic 600 title in full ink on its own line. Every capture is identified as a screen capture, a print, or an illustration.
 
 ### Adding a room
-1. Add the app to `src/_data/apps.js` (slug, name, year, medium, requires, line, status, stateLabel, icon, iconShape, and download only if it ships).
+1. Add the app to `src/_data/apps.js` (slug, name, medium, requires, line, status, stateLabel, icon, iconShape, and download only if it ships).
 2. Create `src/<slug>/` with `<slug>.json` (`{ "appSlug": "<slug>" }`), `index.njk` on the room layout (lede, privacyLine, distribution, optional stateNote). Add the app's section to `src/support.md` and `src/privacy.md` with `appHead`.
 3. Add a `[data-room="<slug>"]` block in `site.css` defining all nine colour roles plus `--light`, `--light-strength`, and `--shadow`, painted from the app's own identity; add `color-scheme: light` and the light-wall adjustments if the wall is light.
 4. Supply the icon as a 640px WebP plus a 180px PNG, each with its provenance sidecar.
@@ -338,7 +338,7 @@ The hang, labels, desk, colophon, redirects, and "Also in the collection" pick t
 
 ### Do:
 - **Do** paint each room in its app's own established identity and express every colour as a role on `[data-room]`.
-- **Do** keep the tombstone anatomy identical everywhere: italic title and date, medium, description, state, "Collection of Individuate LLC".
+- **Do** keep the tombstone anatomy identical everywhere: italic title, medium, description, state, "Collection of Individuate LLC".
 - **Do** set display type at weight 300 and earn emphasis with one word at 700.
 - **Do** set requirements and dates in tabular figures.
 - **Do** letter visitor information straight onto the wall, in the room's colour.

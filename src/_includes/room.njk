@@ -12,7 +12,7 @@ layout: base.njk
     <h1>{{ a.name }}</h1>
     <div class="label">
       <p class="lede">{{ lede | safe }}</p>
-      <p class="tomb"><span class="title">{{ a.name }}, <span class="date">{{ a.year }}</span></span><span class="medium" style="display:block">{{ a.medium }}</span></p>
+      <p class="tomb"><span class="title">{{ a.name }}</span><span class="medium" style="display:block">{{ a.medium }}</span></p>
       {% if a.status == "available" and a.download %}
         <div class="actions">
           <a class="plaque" href="{{ a.download }}" data-download="{{ a.slug }}">{{ arrowDown() | safe }}Download for Mac</a>

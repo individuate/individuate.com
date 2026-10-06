@@ -4,7 +4,7 @@
 
 {% macro tombstone(a, desc=true) -%}
 <span class="label">
-  <span class="title" style="display:block">{{ a.name }}, <span class="date">{{ a.year }}</span></span>
+  <span class="title" style="display:block">{{ a.name }}</span>
   <span class="medium" style="display:block">{{ a.medium }}</span>
   {% if desc %}<span class="desc" style="display:block">{{ a.line }}</span>{% endif %}
   <span class="state{% if a.status != 'available' %} wip{% endif %}">{{ a.stateLabel }}</span>
