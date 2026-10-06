@@ -3,7 +3,6 @@ layout: info.njk
 title: Support
 heading: Support
 sub: "Every app in the collection, and one address for all of them."
-reviewed: false
 ---
 {%- from "macros.njk" import appHead, jump -%}
 <div class="contact">

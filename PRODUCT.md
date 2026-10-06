@@ -51,7 +51,7 @@ The apps, as of 2026-10-05:
 - Support contact: **support@individuate.com**, one address for all apps. Music Prism's shipped feedback composer targets `hello@individuate.com`, so both addresses must reach the owner.
 - **Telemetry (confirmed 2026-10-05):** every app and individuate.com itself send anonymous TelemetryDeck signals (no cookies, no PII, hashed per-install IDs). Every privacy page discloses this, and the site's own privacy note does too.
 - Affirmable's shipped About screen links to `individuate.com/apps/affirmable/`, so `/apps/<app>/` must redirect to `/<app>/`.
-- Privacy policies don't exist yet. Claude drafts them from what each repo shows the app does, and each is clearly marked as a draft for the owner's review before launch.
+- The support and privacy pages were drafted by Claude from what each repo shows the app does; the owner took the draft stamp off both on 2026-10-06. Open questions for the unreleased apps (and Affirmable 2.0) stay as `{# REVIEW #}` template comments in `src/privacy.md`, which never reach the published page.
 - Unreleased apps must not show a download button or invented dates. They may appear in the listing honestly marked as in development.
 - **Only name a platform that ships.** Windows and iPad are internal considerations, not public claims. No "coming soon" for platforms.
 - Each app's own PRODUCT.md (in its repo) owns that app's claims and evidence discipline. This site never invents claims an app's repo forbids. In particular, Music Prism forbids any price or license claim, and it forbids staging chord diagrams as interactive demos.

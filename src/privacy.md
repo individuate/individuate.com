@@ -4,7 +4,6 @@ title: Privacy
 heading: Privacy
 sub: "One policy for every app in the collection, and for this website."
 updated: 2026-10-05
-reviewed: false
 ---
 {%- from "macros.njk" import appHead, jump -%}
 <p class="meta">Updated {{ updated | longDate }}</p>
@@ -55,7 +54,7 @@ Signals never include your name, your email address, or anything you make or typ
 
 **Anthropic (Claude), direct download only, optional.** If you add your own Claude key and choose Claude for diagramming, the sentence you're diagramming is sent to Anthropic's API (`api.anthropic.com`). Only that sentence is sent, not your whole document. Anthropic handles it under [its own privacy policy](https://www.anthropic.com/legal/privacy).
 
-<!-- REVIEW: Prose Primer is unreleased. List the final TelemetryDeck signals and confirm the update mechanism and purchase model (Mac App Store unlock) before publishing. -->
+{# REVIEW: Prose Primer is unreleased. List the final TelemetryDeck signals and confirm the update mechanism and purchase model (Mac App Store unlock) before publishing. #}
 
 {{ appHead(apps | app("steadytending")) }}
 
@@ -67,7 +66,7 @@ Signals never include your name, your email address, or anything you make or typ
 
 **Food data, optional.** Nutrition lookups go to the USDA's FoodData Central.
 
-<!-- REVIEW: SteadyTending is unreleased. Confirm exactly which data each Claude feature sends, whether search terms can include personal context, the final TelemetryDeck signal list, the update mechanism, notification email (Resend), and purchase handling before publishing. -->
+{# REVIEW: SteadyTending is unreleased. Confirm exactly which data each Claude feature sends, whether search terms can include personal context, the final TelemetryDeck signal list, the update mechanism, notification email (Resend), and purchase handling before publishing. #}
 
 {{ appHead(apps | app("affirmable")) }}
 
@@ -79,7 +78,7 @@ Signals never include your name, your email address, or anything you make or typ
 
 **Removing your data.** Delete an affirmation in the app and it's removed everywhere it has synced. To remove all iCloud data, open Settings ▸ [your name] ▸ iCloud ▸ Manage Account Storage ▸ Affirmable.
 
-<!-- REVIEW: confirm reminders/notifications are local-only, and the TelemetryDeck signals once 2.0's are final. -->
+{# REVIEW: confirm reminders/notifications are local-only, and the TelemetryDeck signals once 2.0's are final. #}
 
 ## This website
 
