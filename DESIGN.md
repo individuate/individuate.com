@@ -198,7 +198,7 @@ Every room carries the same nine roles, set on `[data-room="<slug>"]` and inheri
 - **Plaque** (`--plaque` on `--plaque-ink`): the one filled surface, used only for the primary action (Download for Mac) and the skip link. On dark walls it is the wall's ink colour; on light walls (Music Prism, Affirmable) it inverts to the dark ink.
 
 ### Tertiary
-- **Brass** (`--brass`): state that is not yet "available": "Work in progress", "New edition in preparation", and the draft stamp on unapproved policy pages. Each room tunes its brass to stay legible on its own paint (deep umber on Affirmable's gold, burnt amber on Music Prism's ivory, Prose Primer's own preposition orange on lamp-black, SteadyTending's warm amber on indigo).
+- **Brass** (`--brass`): state that is not yet "available": "Work in progress", "In App Store review", and the draft stamp on unapproved policy pages. Each room tunes its brass to stay legible on its own paint (deep umber on Affirmable's gold, burnt amber on Music Prism's ivory, Prose Primer's own preposition orange on lamp-black, SteadyTending's warm amber on indigo).
 - **Room-owned pigments**: a room may carry its app's own semantic colours as extra tokens, used only inside that room's exhibit. Music Prism's four interval colours (root, third, fifth, seventh) mark the instrument key; Prose Primer's part-of-speech pencils (noun `#619bfd`, verb `#fd6a5e`, adjective `#52ae61`, adverb `#b682fa`, preposition `#db8c21`, pronoun `#2daab7`, gerund `#ee6e9b`, article `#b3b9c1`, determiner `#8c9db5`) mark its sentence wall at 30% (16% for articles) mixed into transparency.
 
 ### Neutral
@@ -251,7 +251,7 @@ The page is a wall: full-bleed paint, content inset by one fluid gutter (clamp(1
 
 - **The hang (corridor):** every work on one centreline, one column per app (five today; gap clamp(24px, 3vw, 48px)), each work clamp(140px, 11.5vw, 196px) square, its label dropped 30px beneath. Three columns under 1240px, two under 1080px. Under 600px the works become a single column, each work 124px beside its label.
 - **The room head:** the work at clamp(180px, 22vw, 320px) on the left, aligned to the bottom of the room title and extended label on the right (max 56ch). Stacks under 820px with the work at 200px (168px under 600px).
-- **Exhibits:** each room hangs its material on its own 12-column arrangement, and no two are alike: Food Plan is a tasting menu (an opening wall at 5 + 6, four numbered courses of capture and card at 7 + 4 on alternating sides, a full-width spread over a 6 + 6 pair, then recipe, nutrition label, and AI setup, closing on a second plaque), Music Prism a print room (a matted print at 5 columns beside copy, then two proofs at 6 + 6), Prose Primer a sentence lettered across the wall with a part-of-speech key, Affirmable one affirmation lettered large with "Another one". All collapse to one column under 820px.
+- **Exhibits:** each room hangs its material on its own 12-column arrangement, and no two are alike: Food Plan is a tasting menu (an opening wall at 5 + 6, four numbered courses of capture and card at 7 + 4 on alternating sides, a full-width spread over a 6 + 6 pair, then recipe, nutrition label, and AI setup, closing on a second plaque), Music Prism a print room (a matted print at 5 columns beside copy, then two proofs at 6 + 6), Prose Primer a sentence lettered across the wall with a part-of-speech key, Affirmable one affirmation lettered large with "Another one", then a frieze of three diptychs (pairs of iPhone screens, the second hung a step lower, each over its own heading and caption; one per row at 7 + 5 under 1080px) a "Write **your own**" wall at 5 + 6, and a "Full Support of Apple Technologies" list, set off by the same space above as below it,: a bold term and a soft-ink sentence per item, a 6px ink dot, hairline above each, in three columns (two under 1080px, one under 820px). All collapse to one column under 820px.
 - **Visitor-information desk:** below every room's exhibits, a hairline rule, then three columns (Support, Privacy, Particulars at 1.2fr). The desk goes to two columns under 1080px with the last spanning, and one under 600px. The corridor's information wall has two columns (Support, Privacy), and one under 600px.
 - **Also in the collection:** the other works in a three-column row at 92px, no track light; one column under 1080px.
 - **Visitor-information pages:** a centred reading column of 46rem on the same painted wall.
@@ -267,6 +267,7 @@ The wall itself is flat paint lit from above; depth belongs only to things hung 
 - **Plaque** (`box-shadow: 0 1px 1px rgb(var(--shadow) / .2), 0 8px 18px -6px rgb(var(--shadow) / .45)`; hover `0 12px 24px -8px … / .55` with a 1px lift): the download plaque, mounted slightly off the wall.
 - **Mat** (`box-shadow: 0 1px 2px rgb(var(--shadow) / .25), 0 28px 56px -20px rgb(var(--shadow) / .5)`): a framed print (Music Prism).
 - **Window captures**: none added. App screenshots already carry macOS's own window shadow.
+- **Phone captures** (`box-shadow: 0 1px 2px rgb(var(--shadow) / .25), 0 22px 40px -16px rgb(var(--shadow) / .5)`): iPhone screens have no window of their own, so they hang like a mat, with corners rounded to the display (`13.7% / 6.3%`). Affirmable only.
 
 ### Named Rules
 **The Light Not Boxes Rule.** Depth on a wall is light and cast shadow. Nothing on the wall gets a container, card, or tinted panel to separate it.
@@ -313,7 +314,7 @@ Support and privacy are one page each, lettered straight onto the corridor wall,
 A brass stamp (600, 13px, 6px 12px, 2px corners) on any policy page whose content has not been approved. It is a temporary state and disappears when the page's `reviewed` flag is removed.
 
 ### Exhibit captions
-Figure captions sit 18px under the image at 13px soft ink (max 44ch) with an italic 600 title in full ink on its own line. Every capture is identified as a screen capture, a print, or an illustration.
+Figure captions sit 18px under the image at 13px soft ink (max 44ch) with an italic 600 title in full ink on its own line. Screen captures go unlabeled as such (a caption may be the title alone); a print or an illustration says so.
 
 ### Adding a room
 1. Add the app to `src/_data/apps.js` (slug, name, medium, requires, line, status, stateLabel, icon, iconShape, download only if it ships, and optionally note, account, subscription).

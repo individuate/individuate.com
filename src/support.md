@@ -88,6 +88,14 @@ Yes, through your own iCloud account, when iCloud is turned on for Affirmable. I
 
 No. Reminders are set on each device, so you choose where you're reminded and your iPhone and iPad don't both alert at once. A paired Apple Watch shows your iPhone's reminders.
 
+### What does unlocking writing and editing include?
+
+Affirmable comes with thirty-six affirmations to choose from. The unlock lets you add your own, edit or delete any in your list, and get reminders. It's one purchase, not a subscription. It works on every device signed in to the same Apple Account and is shared through Family Sharing. If it doesn't show as unlocked, open About (the **i** in your list) and tap Restore Purchases.
+
+### How do I change the typeface or the voice that reads aloud?
+
+Open About (the **i** in your list). Typeface offers New York, Optima, Noteworthy, and Rounded, and the widgets follow your choice. Read Aloud Voice uses your Spoken Content voice from Settings ▸ Accessibility ▸ Spoken Content, or your own Personal Voice if you've made one and allow Affirmable to use it.
+
 ### I had the original Affirmable. What happens now?
 
-A new edition, rebuilt from the ground up, is in preparation. This page will say more when it's on the App Store.
+Affirmable 2.0, rebuilt from the ground up, is with Apple for review and will arrive as a free update. The affirmations you kept in the original come along the first time 2.0 opens, and writing, editing, and reminders are unlocked free for everyone who had the original.

@@ -14,7 +14,7 @@ export default [
     passion: "self-talk",
     line: "Affirmations to keep close, from many traditions, right on your Home Screen.",
     status: "new-edition",
-    stateLabel: "New edition in preparation",
+    stateLabel: "In App Store review",
     icon: "/assets/img/affirmable-icon.webp",
     iconShape: "ios",
   },
