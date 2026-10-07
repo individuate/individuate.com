@@ -506,6 +506,37 @@ main { flex: 1; }
 .exhibit figcaption { margin-top: 18px; font-size: 13px; line-height: 1.45; max-width: 44ch; color: var(--ink-soft); }
 .exhibit figcaption b { display: block; font-size: 15px; font-weight: 600; font-style: italic; color: var(--ink); letter-spacing: -.008em; }
 
+/* Food Plan's screenshots open full size (site.js marks them .zoom). The hover
+   swell is the one exception to "motion is light", kept from loveyourfoodplan.com. */
+.exhibit img.zoom { cursor: zoom-in; }
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="reduce"]) .exhibit img.zoom { transition: transform .4s var(--ease); }
+  :root:not([data-motion="reduce"]) .exhibit img.zoom:hover { transform: scale(1.02); }
+}
+
+/* the viewer: the room's floor paint pulled over the whole wall, the capture centred on it */
+.viewer {
+  width: 100vw; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; padding: clamp(16px, 4vw, 48px); border: 0;
+  background: color-mix(in oklab, var(--wall-floor) 94%, transparent);
+  color: var(--ink);
+  cursor: zoom-out;
+}
+.viewer[open] { display: grid; place-items: center; }
+.viewer::backdrop { background: transparent; }
+.viewer img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.viewer button {
+  position: absolute; top: 12px; right: 12px;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  background: transparent; border: 0; padding: 0; color: var(--ink); cursor: pointer;
+  border-radius: 3px;
+}
+.viewer button svg { width: 20px; height: 20px; }
+@media (prefers-reduced-motion: no-preference) {
+  .viewer[open] { transition: opacity .3s var(--ease); }
+  @starting-style { .viewer[open] { opacity: 0; } }
+}
+
 .caption { margin-top: 24px; font-size: 13px; line-height: 1.45; color: var(--ink-soft); max-width: 52ch; }
 .caption b { font-style: italic; font-weight: 600; color: var(--ink); }
 

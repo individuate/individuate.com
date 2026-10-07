@@ -267,6 +267,9 @@ The wall itself is flat paint lit from above; depth belongs only to things hung 
 - **Plaque** (`box-shadow: 0 1px 1px rgb(var(--shadow) / .2), 0 8px 18px -6px rgb(var(--shadow) / .45)`; hover `0 12px 24px -8px … / .55` with a 1px lift): the download plaque, mounted slightly off the wall.
 - **Mat** (`box-shadow: 0 1px 2px rgb(var(--shadow) / .25), 0 28px 56px -20px rgb(var(--shadow) / .5)`): a framed print (Music Prism).
 - **Window captures**: none added. App screenshots already carry macOS's own window shadow.
+
+### Screenshot viewer
+Love Your Food Plan's screenshots open full size. Each one swells to `scale(1.02)` over 0.4s on hover, with a zoom-in cursor (no swell with reduced motion). A click, Enter, or Space opens a native modal dialog: the room's `--wall-floor` at 94% over the whole viewport, the capture centred and contained, a 44px close cross in ink top-right. It opens on the copy already on the page and trades up to the full-resolution capture named by the image's `data-full` (`foodplan-*-full.webp`, converted from the app repo's originals) once that loads; the page itself never downloads the large files. A click anywhere or Escape closes it and returns focus to the screenshot. The script marks the images, so without it they are plain pictures.
 - **Phone captures** (`box-shadow: 0 1px 2px rgb(var(--shadow) / .25), 0 22px 40px -16px rgb(var(--shadow) / .5)`): iPhone screens have no window of their own, so they hang like a mat, with corners rounded to the display (`13.7% / 6.3%`). Affirmable only.
 
 ### Named Rules
