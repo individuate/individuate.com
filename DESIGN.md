@@ -31,10 +31,10 @@ colors:
   musicprism-plaque-ink: "#f4efe4"
   musicprism-mat: "#fffdf8"
   musicprism-mat-rule: "#ded6c4"
-  musicprism-note-root: "#b03a2e"
-  musicprism-note-third: "#2f5f95"
-  musicprism-note-fifth: "#4f6d34"
-  musicprism-note-seventh: "#6b3f72"
+  musicprism-root: "#a8422d"
+  musicprism-third: "#39618c"
+  musicprism-fifth: "#57703f"
+  musicprism-seventh: "#7d4e78"
   proseprimer-wall: "#1c1b19"
   proseprimer-wall-lit: "#2a2825"
   proseprimer-floor: "#141311"
@@ -173,7 +173,7 @@ components:
 
 individuate.com is a small museum. Its apps are not products in a grid; they are works hung on painted walls, each with a tombstone label that gives its title, medium, one line of description, and its honest state. The home page is the corridor, painted bottle green. Each app's own page is a room, painted in that app's identity colour, so walking from the corridor into a room changes the whole viewport. Individuate itself only appears as the room sign and the colophon.
 
-Everything on the wall is lettered, not boxed. There are no cards, tiles, or panels: the lettering sits straight on the paint, like wall vinyl, and hierarchy comes from scale and weight contrast inside one typeface. Depth comes from light, not from containers: a warm pool of track light above each work and a real two-layer drop shadow beneath it. The one motion idea is light: the lights warm up once on arrival, the attended work's light brightens while the rest of the room dims, and the work's icon walks into its room through a cross-document view transition.
+Everything on the wall is lettered, not boxed. There are no cards, tiles, or panels: the lettering sits straight on the paint, like wall vinyl, and hierarchy comes from scale and weight contrast inside one typeface. Depth comes from light, not from containers: a warm pool of track light above each work and a real two-layer drop shadow beneath it. The one motion idea is light: the lights warm up once on arrival, the attended work's light brightens while the rest of the room dims, and the work's icon walks into its room through a cross-document view transition. Two rooms keep a motion of their app's own: Food Plan's screenshots swell under the pointer, and Music Prism's quoted controls cycle with their captures (see Screenshot viewer and Exhibits).
 
 Density is gallery-sparse. A room holds one large work, an extended label, an exhibit hung in a form particular to that app, a visitor-information desk, and a short row of the other works. No two rooms hang their exhibits the same way.
 
@@ -199,17 +199,17 @@ Every room carries the same nine roles, set on `[data-room="<slug>"]` and inheri
 
 ### Tertiary
 - **Brass** (`--brass`): state that is not yet "available": "Work in progress", "In App Store review", and the draft stamp on unapproved policy pages. Each room tunes its brass to stay legible on its own paint (deep umber on Affirmable's gold, burnt amber on Music Prism's ivory, Prose Primer's own preposition orange on lamp-black, SteadyTending's warm amber on indigo).
-- **Room-owned pigments**: a room may carry its app's own semantic colours as extra tokens, used only inside that room's exhibit. Music Prism's four interval colours (root, third, fifth, seventh) mark the instrument key; Prose Primer's part-of-speech pencils (noun `#619bfd`, verb `#fd6a5e`, adjective `#52ae61`, adverb `#b682fa`, preposition `#db8c21`, pronoun `#2daab7`, gerund `#ee6e9b`, article `#b3b9c1`, determiner `#8c9db5`) mark its sentence wall at 30% (16% for articles) mixed into transparency.
+- **Room-owned pigments**: a room may carry its app's own semantic colours as extra tokens, used only inside that room's exhibit. Music Prism carries its app's whole drawing palette from that repo's `src/tokens.css` (`--card`, `--line`, `--fret`, `--landmark`, the three key colours, and the four tones `--root`, `--third`, `--fifth`, `--seventh`, with the app's dark values under Dark), because its diagrams are drawn by the app's own renderers and read those names; Prose Primer's part-of-speech pencils (noun `#619bfd`, verb `#fd6a5e`, adjective `#52ae61`, adverb `#b682fa`, preposition `#db8c21`, pronoun `#2daab7`, gerund `#ee6e9b`, article `#b3b9c1`, determiner `#8c9db5`) mark its sentence wall at 30% (16% for articles) mixed into transparency.
 
 ### Neutral
 - **Ink** (`--ink`): headlines, work titles, links, body on the wall.
 - **Soft Ink** (`--ink-soft`): ledes, medium lines, captions, wayfinding links, table headers.
 - **Faint Ink** (`--ink-faint`): the colophon, separators in the room sign.
 - **Hairline**: `--ink` mixed into transparency at 14–20% (`color-mix(in oklab, var(--ink) 18%, transparent)`) for the rule above the visitor-information desk, table rows, and directory rows.
-- **Mat paper** (Music Prism only): the print in that room hangs on a mat of the app's own card colour with a 1px rule.
+- **Mat paper** (Music Prism only): the two printed sheets in that room hang on mats of the app's own card colour with a 1px rule, in either paint (paper is paper).
 
 ### Named Rules
-**The Own Paint Rule.** Every app's room is painted in that app's established identity, never in an Individuate house colour. Music Prism's ivory comes from its "Engraver's Proof" paper (that app's DESIGN.md: paper `#FAF6EF`, card `#FFFDF8`), deepened one step so it reads as a painted wall; its mat uses the app's card colour and its note dots its tone colours. A new room takes its wall from its app's icon and existing design system, not from a free choice.
+**The Own Paint Rule.** Every app's room is painted in that app's established identity, never in an Individuate house colour. Music Prism's ivory comes from its "Engraver's Proof" paper (that app's DESIGN.md: paper `#FAF6EF`, card `#FFFDF8`), deepened one step so it reads as a painted wall; its mats use the app's card colour and its diagrams its own drawing tokens. A new room takes its wall from its app's icon and existing design system, not from a free choice.
 
 **The Role-Not-Hue Rule.** Components read `--wall`, `--ink`, `--brass`, and the rest; they never hard-code a room's hex. A component that only works on one wall is a defect.
 
@@ -251,7 +251,7 @@ The page is a wall: full-bleed paint, content inset by one fluid gutter (clamp(1
 
 - **The hang (corridor):** every work on one centreline, one column per app (five today; gap clamp(24px, 3vw, 48px)), each work clamp(140px, 11.5vw, 196px) square, its label dropped 30px beneath. Three columns under 1240px, two under 1080px. Under 600px the works become a single column, each work 124px beside its label.
 - **The room head:** the work at clamp(180px, 22vw, 320px) on the left, aligned to the bottom of the room title and extended label on the right (max 56ch). Stacks under 820px with the work at 200px (168px under 600px).
-- **Exhibits:** each room hangs its material on its own 12-column arrangement, and no two are alike: Food Plan is a tasting menu (an opening wall at 5 + 6, four numbered courses of capture and card at 7 + 4 on alternating sides, a full-width spread over a 6 + 6 pair, then recipe, nutrition label, and AI setup, closing on a second plaque), Music Prism a print room (a matted print at 5 columns beside copy, then two proofs at 6 + 6), Prose Primer a sentence lettered across the wall with a part-of-speech key, Affirmable one affirmation lettered large with "Another one", then a frieze of three diptychs (pairs of iPhone screens, the second hung a step lower, each over its own heading and caption; one per row at 7 + 5 under 1080px) a "Write **your own**" wall at 5 + 6, and a "Full Support of Apple Technologies" list, set off by the same space above as below it,: a bold term and a soft-ink sentence per item, a 6px ink dot, hairline above each, in three columns (two under 1080px, one under 820px). All collapse to one column under 820px.
+- **Exhibits:** each room hangs its material on its own 12-column arrangement, and no two are alike: Food Plan is a tasting menu (an opening wall at 5 + 6, four numbered courses of capture and card at 7 + 4 on alternating sides, a full-width spread over a 6 + 6 pair, then recipe, nutrition label, and AI setup, closing on a second plaque), Music Prism an engraver's print room (the argument at 5 columns beside a wall drawing of sixty chord diagrams that runs off the right edge of the wall and inks itself in once; the same C chord on seven instruments hung on one line like the corridor's hang, all at one scale; seven plates, each with its text held sticky at 4 columns beside its captures at 8, one capture or two stacked, the text closing on the app's own control quoted as chips; two prints on mats at 4 + 4 beside copy; the F♯maj7 spelling proof at 6 with its four notes lettered at display scale; then a centred close with the plaque and the version, and last an "At Home on the Mac" list of the app's Mac features in Affirmable's ruled three-column form, its dots in the app's four tones), Prose Primer a sentence lettered across the wall with a part-of-speech key, Affirmable one affirmation lettered large with "Another one", then a frieze of three diptychs (pairs of iPhone screens, the second hung a step lower, each over its own heading and caption; one per row at 7 + 5 under 1080px) a "Write **your own**" wall at 5 + 6, and a "Full Support of Apple Technologies" list, set off by the same space above as below it,: a bold term and a soft-ink sentence per item, a 6px ink dot, hairline above each, in three columns (two under 1080px, one under 820px). All collapse to one column under 820px.
 - **Visitor-information desk:** below every room's exhibits, a hairline rule, then three columns (Support, Privacy, Particulars at 1.2fr). The desk goes to two columns under 1080px with the last spanning, and one under 600px. The corridor's information wall has two columns (Support, Privacy), and one under 600px.
 - **Also in the collection:** the other works in a three-column row at 92px, no track light; one column under 1080px.
 - **Visitor-information pages:** a centred reading column of 46rem on the same painted wall.
@@ -269,7 +269,11 @@ The wall itself is flat paint lit from above; depth belongs only to things hung 
 - **Window captures**: none added. App screenshots already carry macOS's own window shadow.
 
 ### Screenshot viewer
-Love Your Food Plan's screenshots open full size. Each one swells to `scale(1.02)` over 0.4s on hover, with a zoom-in cursor (no swell with reduced motion). A click, Enter, or Space opens a native modal dialog: the room's `--wall-floor` at 94% over the whole viewport, the capture centred and contained, a 44px close cross in ink top-right. It opens on the copy already on the page and trades up to the full-resolution capture named by the image's `data-full` (`foodplan-*-full.webp`, converted from the app repo's originals) once that loads; the page itself never downloads the large files. A click anywhere or Escape closes it and returns focus to the screenshot. The script marks the images, so without it they are plain pictures.
+Love Your Food Plan's and Music Prism's screenshots open full size. Each one swells to `scale(1.02)` over 0.4s on hover, with a zoom-in cursor (no swell with reduced motion). A click, Enter, or Space opens a native modal dialog: the room's `--wall-floor` at 94% over the whole viewport, the capture centred and contained, a 44px close cross in ink top-right. It opens on the copy already on the page and trades up to the full-resolution capture named by the image's `data-full` (`foodplan-*-full.webp`, converted from the app repo's originals) once that loads; the page itself never downloads the large files. A click anywhere or Escape closes it and returns focus to the screenshot. The script marks the images, so without it they are plain pictures.
+
+Music Prism's captures come in the app's light and dark themes (`musicprism-*.webp`, `*-dark.webp`, each with a `-full` original, copied by `scripts/sync-musicprism.mjs`). The dark copy sits in a `<source data-dark media="not all">` that the appearance script switches to `all` when the room is painted dark, and the viewer opens the dark original then. Where a plate cycles, the viewer opens whichever frame is showing.
+
+**Quoted controls (Music Prism).** Each plate closes on the app's own control drawn as chips, a picture of the control that takes no pointer. Where the capture beside it cycles (Quality: eight steps; CAGED Highlight: six; Scales Show: three; three seconds a step), the lit chip and the capture cross-fade in step for one round while the plate is in view, then rest on the selection the chips declare, which is also the base capture. The script starts every cycle on a plate at once (`.anim-run`) so they can't drift, pauses them off screen, and loads the frames only as the plate comes near. With reduced motion or no script, the frames never load and the plate is still.
 - **Phone captures** (`box-shadow: 0 1px 2px rgb(var(--shadow) / .25), 0 22px 40px -16px rgb(var(--shadow) / .5)`): iPhone screens have no window of their own, so they hang like a mat, with corners rounded to the display (`13.7% / 6.3%`). Affirmable only.
 
 ### Named Rules
@@ -346,6 +350,6 @@ The hang, labels, desk, colophon, redirects, and "Also in the collection" pick t
 - **Don't** write "we", "us", or "our" anywhere on the site, and don't give Individuate a studio or personal voice.
 - **Don't** paint a room in a colour the app doesn't own, or hard-code a room hex inside a shared component.
 - **Don't** show a download plaque, release date, or platform for an app that doesn't ship it.
-- **Don't** add a second typeface or load fonts from a third-party service.
+- **Don't** add a second typeface or load fonts from a third-party service. (Music Prism's room lists STIXGeneral and Apple Symbols after Franklin only so ♭ and ♯, which Libre Franklin lacks, fall back to engraver's accidentals glyph by glyph; nothing is loaded.)
 - **Don't** add shadows to window captures; they carry macOS's own.
 - **Don't** hang two rooms' exhibits in the same arrangement.

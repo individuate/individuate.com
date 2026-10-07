@@ -18,6 +18,7 @@ npm run build    # writes _site/
 | `src/support.md`, `src/privacy.md` | The one support page and the one privacy policy: shared rules first, then a section per app (`appHead` in `macros.njk` gives each its `#<slug>` anchor). `reviewed: false` shows a "Draft for review" stamp; set it to `true` once you've approved the text. |
 | `src/_data/redirects.js`, `src/redirects.njk` | Old addresses kept alive: `/apps/<app>/` → `/<app>/` (Affirmable's shipped About screen), and `/<app>/support/`, `/<app>/privacy/` → the app's section on the shared pages. |
 | `src/assets/site.css` | The whole visual system: room palettes live under `[data-room="…"]`. |
+| `scripts/sync-musicprism.mjs` | Copies Music Prism's captures (light and dark), printed sheets, app-drawn chord diagrams (into `src/_includes/musicprism/`), and latest version from the app repo. Run `node scripts/sync-musicprism.mjs` after that repo reshoots or ships, then rebuild. |
 | `src/_data/site.js` | Support address and the website's TelemetryDeck app ID (the script is omitted until it's set). |
 
 ## Adding an app

@@ -1,33 +1,252 @@
 ---
 layout: room.njk
-description: "Music Prism: a chord reference that helps you find your voice(ing). Guitar, bass, ukulele, and piano, in one macOS app."
-lede: "A chord reference that helps you find your voice(ing). Beginners get a fast, visual reference for where the fingers go; experienced players can work through voicings and progressions methodically."
+description: "Music Prism: a chord reference that helps you find your voice(ing). Guitar, bass, ukulele, and piano, every diagram drawn from the tuning of the instrument you picked. A macOS app."
+lede: "A chord reference that helps you find your voice<span class=\"ing\">(ing)</span>. Guitar, bass, ukulele, and piano. Beginners get a fast, visual reference for where the fingers go. Intermediate players might explore new voicings or tougher progressions. And skilled players can refresh their memory on how that one scale works in E♭."
 privacyLine: "Nothing you look up leaves your Mac. The app sends a handful of anonymous usage signals, and nothing else."
 distribution: "Direct download, signed and notarized; updates itself"
 ---
-<section class="exhibits" aria-label="In this room">
-  <div class="print-room">
-    <figure class="exhibit mat">
-      <img src="/assets/img/musicprism-printed-guitar.webp" alt="A printed reference sheet titled Every inversion of the Cmaj7 chord, with guitar chord diagrams across three string sets." width="900" height="1165" loading="lazy" decoding="async">
-    </figure>
+{%- from "macros.njk" import plaque -%}
+{%- set a = apps | app(appSlug) -%}
+
+{#- A capture as it hangs: the light copy by default, the dark copy when the
+    room is painted dark (site.js switches the source), each with its full-size
+    original for the viewer. Frames are the cycling captures stacked over a
+    base; they load only when their plate comes near and motion is allowed. -#}
+{%- macro shot(name, alt, h=1044) -%}
+<picture>
+  <source data-dark media="not all" srcset="/assets/img/musicprism-{{ name }}-dark.webp" data-full="/assets/img/musicprism-{{ name }}-dark-full.webp" type="image/webp">
+  <img src="/assets/img/musicprism-{{ name }}.webp" data-full="/assets/img/musicprism-{{ name }}-full.webp" alt="{{ alt }}" width="1600" height="{{ h }}" loading="lazy" decoding="async">
+</picture>
+{%- endmacro -%}
+{%- macro frame(name, k) -%}
+<picture class="frame" style="--k:{{ k }}">
+  <source data-dark media="not all" data-srcset="/assets/img/musicprism-{{ name }}-dark.webp" data-full="/assets/img/musicprism-{{ name }}-dark-full.webp" type="image/webp">
+  <img data-src="/assets/img/musicprism-{{ name }}.webp" data-full="/assets/img/musicprism-{{ name }}-full.webp" alt="" aria-hidden="true" width="1600" height="1044" loading="lazy" decoding="async">
+</picture>
+{%- endmacro -%}
+
+<section class="exhibits prism" aria-label="In this room">
+
+  <div class="drawing-wall" id="why">
     <div class="copy">
-      <p class="wall-copy">Guitar, standard and baritone. Bass, four-string and five. Ukulele, standard and baritone. And piano.</p>
-      <p class="wall-copy soft">A chord on the fretboard and the same chord on the keyboard are two views of one thing. Every diagram comes from the same engine, and every sheet prints.</p>
-      <div class="instruments" aria-label="How Music Prism colors a chord's notes">
-        <span><i style="background:var(--note-r)"></i>Root</span>
-        <span><i style="background:var(--note-3)"></i>Third</span>
-        <span><i style="background:var(--note-5)"></i>Fifth</span>
-        <span><i style="background:var(--note-7)"></i>Seventh</span>
-      </div>
-      <p class="caption"><b>Every inversion of the Cmaj7 chord.</b> A sheet printed from the app.</p>
+      <h2>Where do your <b>fingers</b> go?</h2>
+      <p class="wall-copy">When you want to learn music or play an instrument there’s a lot to absorb. Beyond the muscle mechanics of <em>how</em> to move your fingers, and fast enough, there’s the question of <em>where</em> to put them.</p>
+      <p class="wall-copy soft">Most chord books give you every possible combination. Most software is too complex and offers too many choices. Neither is much use when the instrument is in your hands and you’re wondering, <em>how’s this work again…?</em></p>
+      <p class="wall-copy">Music Prism is a focused, interactive reference that helps you grok how music works in practice. Change from major to minor and <em>see</em> how the notes move on the fretboard or keyboard. Oh, <em>that’s</em> how a maj7 works. What <em>is</em> a sus4, anyway?</p>
+      <p class="wall-copy soft">If you’ve ever struggled to understand music while you were practicing it, keep Music Prism open next time.</p>
     </div>
-    <figure class="exhibit p2">
-      <img src="/assets/img/musicprism-progression.webp" alt="Music Prism showing the I–IV–V progression over twelve bars in E, with guitar chord diagrams for E7, A7, and B7." width="1240" height="808" loading="lazy" decoding="async">
-      <figcaption><b>I–IV–V over 12 bars in E</b>Progressions view.</figcaption>
+    <div class="drawing">
+      {% include "musicprism/hero-sheet.html" %}
+    </div>
+    <p class="caption"><b>Sixty chords, drawn on the wall</b> By Music Prism’s own diagram engine, the code that draws them in the app.</p>
+  </div>
+
+  <div class="seven" id="instruments">
+    <div class="seven-head">
+      <h2>The same chord, seven instruments</h2>
+      <div class="copy">
+        <p>Guitar, standard and baritone. Bass, four-string and five. Ukulele, standard and baritone. And piano. Learn one instrument, or learn how the notes and chords translate from one to the next.</p>
+        <p>A chord on the fretboard and the same chord on the keyboard are two views of one thing: the diagrams all come from the same engine. Here, the same C chord, drawn for each of the seven instruments.</p>
+        {% include "musicprism/module-instrument.html" %}
+      </div>
+    </div>
+    {% include "musicprism/seven-instruments.html" %}
+  </div>
+
+  <div class="plates" id="plates">
+    <h2 class="visually-hidden">What’s inside</h2>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>Inversions <span class="ing">=</span> Voicings</h3>
+        <p>“Inversions” are the different ways one chord can be voiced: the same notes, stacked in another order, in another place. You can play a chord in a lot of spots on the fretboard or keyboard, and which one you reach for depends on where your hand is coming from and where it’s going next in the song.</p>
+        <p>The standard advice is to learn them all, up and down the neck, in every key. Music Prism gives you a way to work through that methodically, and a reference to come back to as you grow.</p>
+        {% include "musicprism/module-view-inversions.html" %}
+      </div>
+      <div class="plate-shots">
+        <figure class="exhibit">
+          {{ shot("inversions-guitar", "Music Prism showing every inversion of a C7 chord on guitar: C7, C7/E, C7/G, C7/B♭, across each adjacent set of strings.") }}
+          <figcaption><b>C7 on guitar</b>Every inversion, across every string set.</figcaption>
+        </figure>
+        <figure class="exhibit">
+          {{ shot("inversions-piano", "The same C7 on the piano keyboard, its four inversions laid out as close-position voicings.") }}
+          <figcaption><b>The same C7 on piano</b>Four inversions in close position.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>Chord qualities</h3>
+        <p>How is major different from minor? How do you turn either one into a maj7 or an m7? What’s the diminished shape again? Would sus2 work here, or sus4?</p>
+        <p>Switch the quality and watch the diagram change under you. Play the shapes on your instrument and let your mind start making the connections. That’s how a chord gets under your fingers.</p>
+        {% include "musicprism/module-quality.html" %}
+      </div>
+      <div class="plate-shots">
+        {%- set qualities = [["major", 0], ["minor", 2], ["m7", 3], ["dim", 4], ["dom7", 5], ["sus2", 6], ["sus4", 7]] %}
+        <figure class="exhibit">
+          <div class="shot-cycle shot-cycle-8">
+            {{ shot("quality-guitar-maj7", "Music Prism showing a Dmaj7 chord on guitar, redrawn through all eight qualities in turn as the Quality control cycles.") }}
+            {% for q in qualities %}{{ frame("quality-guitar-" + q[0], q[1]) }}{% endfor %}
+          </div>
+          <figcaption><b>One D chord, eight qualities</b>On guitar, redrawn at each turn.</figcaption>
+        </figure>
+        <figure class="exhibit">
+          <div class="shot-cycle shot-cycle-8">
+            {{ shot("quality-piano-maj7", "The same Dmaj7 on the piano keyboard, following the same cycle through all eight qualities.") }}
+            {% for q in qualities %}{{ frame("quality-piano-" + q[0], q[1]) }}{% endfor %}
+          </div>
+          <figcaption><b>The same D on piano</b>Through the same eight.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>What <em>is</em> this chord?</h3>
+        <p>You’re playing around and you find something you like. What <em>is</em> that? Click the notes on a blank fretboard or keyboard and the chord gets named from its intervals, along with any other reading the same notes allow.</p>
+        <p>For the experts: the lowest sounding note decides between a plain name and a slash chord.</p>
+        <p>When the chord turns up in one of the app’s progressions, one more click shows it there, in a key where it’s at home.</p>
+        {% include "musicprism/module-view-identify.html" %}
+      </div>
+      <div class="plate-shots">
+        <figure class="exhibit">
+          {{ shot("identify-complex", "Music Prism’s Identify view naming a grip marked on a blank fretboard, x x 7 7 5 5, as Asus4, with the alternate reading Dsus2/A.") }}
+          <figcaption><b>Asus4, also known as Dsus2/A</b>You found it by ear at the seventh fret, and now you know what it is.</figcaption>
+        </figure>
+        <figure class="exhibit">
+          {{ shot("identify-door", "Identify naming the grip x 7 9 8 9 x as Emaj7, with a button beneath the result reading “See Emaj7 in a progression →”.") }}
+          <figcaption><b>Emaj7</b>One click from the ii–V–I in E.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>The CAGED map</h3>
+        <p class="note">Standard guitar only</p>
+        <p>The CAGED map shows how the five open shapes move across the neck. See how they overlap, or highlight one shape on its own. Change the root and watch the chord appear in all five positions. “Play the C chord in the A shape” will finally make sense.</p>
+        {% include "musicprism/module-view-caged.html" %}
+        {% include "musicprism/module-highlight.html" %}
+      </div>
+      <div class="plate-shots">
+        <figure class="exhibit">
+          <div class="shot-cycle shot-cycle-6">
+            {{ shot("caged", "Music Prism’s full-neck CAGED map for C major, showing the five open shapes bracketed across the fretboard, each highlighted in turn.") }}
+            {% for s in ["C", "A", "G", "E", "D"] %}{{ frame("caged-" + s, loop.index) }}{% endfor %}
+          </div>
+          <figcaption><b>C major in all five shapes</b>One at a time, or all together.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>Progressions</h3>
+        <p>Sometimes when you’re practicing you’re not playing a song, but you don’t want to just noodle around either. What you want is a <em>progression</em>: the chord sequences songs are built from.</p>
+        <p>I–IV–V: blues, folk, and early rock and roll ran on little else for decades. iv–VII–III–VI: “Autumn Leaves” in a single breath, and a jazz-standard staple. Thirteen of them are built in, root position or voice-led. Learn a few and you’ll start hearing every song differently.</p>
+        {% include "musicprism/module-view-progressions.html" %}
+      </div>
+      <div class="plate-shots">
+        <figure class="exhibit">
+          {{ shot("progression-blues", "Music Prism laying out the twelve-bar blues in E major on guitar, as a grid of bars.") }}
+          <figcaption><b>The 12-bar blues in E</b>Root position, on guitar.</figcaption>
+        </figure>
+        <figure class="exhibit">
+          {{ shot("progression-doowop", "Music Prism laying out the I–vi–IV–V progression in G major on piano, each chord voice-led from the one before.") }}
+          <figcaption><b>I–vi–IV–V in G</b>Voice-led, on piano.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>Scales</h3>
+        <p>Where melody comes from, in three layers: the chord tells you where home is, the pentatonic adds the two notes that turn it into vocabulary, and the full scale fills in the colors.</p>
+        <p>Rather than one huge chart that’s hard to read and harder to memorize, you add and subtract the layers yourself, so it stays clear what you’re actually looking at.</p>
+        {% include "musicprism/module-view-scales.html" %}
+        {% include "musicprism/module-show.html" %}
+      </div>
+      <div class="plate-shots">
+        <figure class="exhibit">
+          <div class="shot-cycle shot-cycle-3">
+            {{ shot("scales", "Music Prism showing the G major scale across the full guitar neck, built up in layers from the chord tones.") }}
+            {{ frame("scales-triad", 1) }}{{ frame("scales-pent", 2) }}
+          </div>
+          <figcaption><b>G major across the neck</b>Built in layers: triad, pentatonic, scale.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="plate">
+      <div class="plate-text">
+        <h3>Musical keys and the Nashville Number System</h3>
+        <p>When you’re ready, explore keys, and how chords become the numerals of the Nashville Number System (I, ii, iii, IV…), the same in every key. Change the key and every diagram follows, spelled the way that key spells it.</p>
+        {% include "musicprism/module-key.html" %}
+        {% include "musicprism/module-degrees.html" %}
+      </div>
+      <div class="plate-shots">
+        <figure class="exhibit">
+          {{ shot("keys-nashville", "Music Prism with the key set to E♭ minor: the key row, the degree row spelling VI as C♭, and every root chip carrying its roman numeral, above E♭ minor inversions on guitar.", 1216) }}
+          <figcaption><b>E♭ minor</b>Every root shows its numeral: the VI chord is C♭.</figcaption>
+        </figure>
+      </div>
+    </article>
+  </div>
+
+  <div class="paper" id="paper">
+    <div class="copy">
+      <h2>Made to be printed</h2>
+      <p>Print any sheet, or export it as a PDF. Every view has been tuned to come out as a good-looking, easy-to-read page, with an extra margin on the hole-punch side, so it holds in a binder.</p>
+    </div>
+    <figure class="exhibit">
+      <div class="mat"><img src="/assets/img/musicprism-printed-guitar.webp" data-full="/assets/img/musicprism-printed-guitar-full.webp" alt="A Music Prism sheet printed from the app: every inversion of Cmaj7 on guitar, across three sets of strings." width="900" height="1165" loading="lazy" decoding="async"></div>
+      <figcaption><b>Cmaj7 on guitar</b>A sheet printed from the app.</figcaption>
     </figure>
-    <figure class="exhibit p3">
-      <img src="/assets/img/musicprism-inversions-piano.webp" alt="Music Prism showing chord inversions drawn on a piano keyboard." width="1240" height="808" loading="lazy" decoding="async">
-      <figcaption><b>Inversions on the keyboard</b>The same chord, restacked.</figcaption>
+    <figure class="exhibit">
+      <div class="mat"><img src="/assets/img/musicprism-printed-piano.webp" data-full="/assets/img/musicprism-printed-piano-full.webp" alt="The same Cmaj7 sheet printed for piano, showing four inversions in close position." width="900" height="1165" loading="lazy" decoding="async"></div>
+      <figcaption><b>Cmaj7 on piano</b>The same sheet, for the keyboard.</figcaption>
     </figure>
+  </div>
+
+  <div class="spelled" id="computed">
+    <div class="copy">
+      <h2>Is that chord <b>spelled</b> right?</h2>
+      <p>Nothing here is a scanned chord chart. Every dot is placed by counting intervals from the root against the tuning of the instrument you picked, and every note is spelled the way theory says it should be.</p>
+      <p>The third of F♯maj7 is A♯ and its seventh is E♯, because a maj7 stacks thirds, and the letters have to step F–A–C–E. Chord books and tab sites get this wrong routinely. It’s the kind of detail you don’t need until you do, and then you really do.</p>
+      <p>Drawing from the math instead of from a library is also why the app can grow: a new instrument is just a new tuning.</p>
+    </div>
+    {% include "musicprism/atom.html" %}
+  </div>
+
+  <div class="coda" id="download">
+    <h2>Music Prism for Mac</h2>
+    <p>For Mac laptops and desktops, not iPhone or iPad. Old-school macOS app. No login. No cloud. No demo mode, no ads, and nothing to sign up for.</p>
+    {% if a.download %}
+    <div class="actions">
+      {{ plaque(a) }}
+      <span class="note">{% for r in a.requires %}{{ r[0] }} {{ r[1] }}{% endfor %} · {{ a.note or "No account needed" }}</span>
+    </div>
+    <p class="on-mac">It’s signed and notarized by Apple. Drag it to your Applications folder and open it; after that, it’ll tell you when there’s an update.</p>
+    {% endif %}
+    {% if release %}<p class="version">Version {{ release.version }} · {{ release.megabytes }} MB</p>{% endif %}
+  </div>
+
+  <div class="apple-tech">
+    <h2>At Home on the Mac</h2>
+    <ul>
+      <li><b>Light and Dark Mode.</b> Warm paper by day and a warm dark page at night, following your Mac’s appearance.</li>
+      <li><b>VoiceOver.</b> Every diagram describes itself, naming each chord tone, and Identify announces the chord it finds.</li>
+      <li><b>The keyboard.</b> Every control is reachable, and in Identify the arrow keys walk the fretboard or the piano while Return marks a note.</li>
+      <li><b>Reduce Motion.</b> The CAGED map changes its highlight without animation when Reduce Motion is on.</li>
+      <li><b>Zoom.</b> Zoom In, Zoom Out, and Actual Size in the View menu (⌘=, ⌘−, ⌘0) enlarge the whole sheet to read from guitar distance, and the app remembers the size.</li>
+      <li><b>Printing.</b> The Mac’s own print panel, with real page margins and extra room on the hole-punch side. Zoom never changes what prints.</li>
+      <li><b>Save as PDF.</b> From the print panel, already named for the sheet you’re looking at.</li>
+      <li><b>Mac menus.</b> Full Screen from the Window menu, and the Services, Hide, and Quit items every Mac app has.</li>
+      <li><b>Remembers where you were.</b> The window reopens where you left it, at the size you left it, on the instrument, view, and chord you were last on.</li>
+      <li><b>Updates.</b> Check for Updates… sits under About Music Prism, and the app checks on its own and tells you when there’s a new version.</li>
+      <li><b>Signed and notarized.</b> Signed with an Apple Developer ID and notarized by Apple, so it opens like any other app.</li>
+      <li><b>Your mail app.</b> Report a Bug or Request a Feature, in the Help menu, drafts the email in your own mail app for you to send. Every one is read.</li>
+    </ul>
   </div>
 </section>

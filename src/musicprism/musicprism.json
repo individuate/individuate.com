@@ -1,1 +1,7 @@
-{ "appSlug": "musicprism" }
+{
+  "appSlug": "musicprism",
+  "release": {
+    "version": "1.2.3",
+    "megabytes": "9.1"
+  }
+}
