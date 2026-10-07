@@ -231,7 +231,7 @@ Every room carries the same nine roles, set on `[data-room="<slug>"]` and inheri
 - **Headline** (300, clamp(38px, 4.6vw, 64px), 1): the title of a support or privacy page.
 - **Section** (300, clamp(26px, 2.4vw, 32px), 1.15): section heads inside visitor-information pages; questions under them are 17px at 650.
 - **Wall copy** (400, clamp(19px, 1.6vw, 24px), 1.42, max 36ch): the paragraphs hung beside a room's exhibit; a second paragraph steps down to soft ink.
-- **Exhibit lettering**: Affirmable's affirmation (300, clamp(36px, 6.2vw, 96px), max 17ch) and Prose Primer's sentence (400, clamp(30px, 4.4vw, 66px), max 22ch) are lettered at display scale as the exhibit itself.
+- **Exhibit lettering**: Affirmable's affirmation (300, clamp(32px, 5vw, 76px), max 17ch, a step below the room's title) and Prose Primer's sentence (400, clamp(30px, 4.4vw, 66px), max 22ch) are lettered at display scale as the exhibit itself.
 - **Work title** (600 italic, 18px; 16px in rooms and small rows): the title in every tombstone and figure caption.
 - **Body** (400, 17px, 1.5; 16px under 600px; 1.6 and max 68ch in policy text).
 - **Sign** (700, 15px): the room sign "Individuate" and the small headings on the visitor-information desk.

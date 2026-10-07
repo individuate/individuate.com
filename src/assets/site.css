@@ -613,6 +613,8 @@ main { flex: 1; }
 .key button:hover { color: var(--ink); border-color: color-mix(in oklab, var(--ink) 45%, transparent); }
 .key button[aria-pressed="true"] { color: var(--ink); background: color-mix(in oklab, var(--pos) 18%, transparent); border-color: var(--pos); }
 .prose-copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 5vw, 88px); max-width: 1100px; }
+/* side by side, the second paragraph doesn't take the stacked paragraph's top margin */
+.prose-copy .wall-copy, .affirm-copy .wall-copy { margin-top: 0; }
 
 /* SteadyTending: one line of its own, set at wall scale */
 .arc-wall { padding-block: clamp(8px, 2vh, 24px) clamp(48px, 8vh, 96px); }
@@ -635,7 +637,7 @@ main { flex: 1; }
   padding-block: 24px clamp(48px, 8vh, 96px);
 }
 .affirmation {
-  font-size: clamp(36px, 6.2vw, 96px);
+  font-size: clamp(32px, 5vw, 76px);
   line-height: 1.02;
   letter-spacing: -.035em;
   font-weight: 300;
