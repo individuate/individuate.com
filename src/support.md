@@ -84,6 +84,10 @@ Touch and hold an empty area of your Home Screen until the apps jiggle, tap Edit
 
 Yes, through your own iCloud account, when iCloud is turned on for Affirmable. Individuate never sees them.
 
+### Do reminders sync too?
+
+No. Reminders are set on each device, so you choose where you're reminded and your iPhone and iPad don't both alert at once. A paired Apple Watch shows your iPhone's reminders.
+
 ### I had the original Affirmable. What happens now?
 
 A new edition, rebuilt from the ground up, is in preparation. This page will say more when it's on the App Store.
