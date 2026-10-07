@@ -26,7 +26,7 @@ Signals never include your name, your email address, or anything you make or typ
 
 **Update checks.** Mac apps downloaded from this site check GitHub for new versions using Sparkle. Like any web request, that request includes your app version and macOS version.
 
-**Purchases.** When you buy something through the App Store or Mac App Store, Apple processes the payment. Individuate receives no payment details, only Apple's confirmation of the purchase.
+**Purchases.** When you buy something through the App Store or Mac App Store, Apple processes the payment. Individuate receives no payment details, only Apple's confirmation of the purchase. Affirmable also counts a purchase among its anonymous usage signals, with the price and currency.
 
 **Email you send.** If you write to support, or send a note with an app's feedback option, your message reaches Individuate by email, and only when you send it.
 
@@ -70,7 +70,7 @@ Signals never include your name, your email address, or anything you make or typ
 
 {{ appHead(apps | app("affirmable")) }}
 
-**On your iPhone.** Your affirmations, favorites, and settings. A shared container lets the app's widgets show them on your Home Screen and Lock Screen.
+**On your iPhone and iPad.** Your affirmations, which ones are shown, your reminder times, and settings. A shared container lets the app's widgets show them on your Home Screen and in StandBy.
 
 **In your iCloud, if you use iCloud.** Affirmable syncs through your private iCloud database so your affirmations appear on your other devices. That data belongs to your Apple Account, is protected by Apple, and isn't visible to Individuate.
 
