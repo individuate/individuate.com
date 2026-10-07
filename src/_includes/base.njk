@@ -29,6 +29,17 @@
   if (read("individuate:motion") === "reduce") root.dataset.motion = "reduce";
   root.classList.add("js");
 })();
+// Which platform, decided before paint: download plaques are for Mac laptops and
+// desktops, and everything else gets a one-line note in their place. True detection
+// rather than a viewport proxy, so a Mac in a narrow window keeps its plaque.
+// iPadOS reports "MacIntel" but has touch points; a Mac has none. The modern field
+// is read first, the user-agent string last. Fails open: no signal, or no script,
+// shows the plaque. Same branch as loveyourfoodplan.com and music-prism.com.
+(() => {
+  const signal = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent || "";
+  const mac = /mac/i.test(signal) && navigator.maxTouchPoints === 0;
+  if (signal && !mac) document.documentElement.classList.add("not-mac");
+})();
 // Walking between rooms: name only the work that travels, and only while it travels.
 // (A standing view-transition-name clips each icon's shadow into a box.)
 (() => {

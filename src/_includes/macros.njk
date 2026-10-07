@@ -11,9 +11,11 @@
 </span>
 {%- endmacro %}
 
-{# The download plaque. The second line is there because "Mac" alone reads as "Apple" to some visitors. #}
+{# The download plaque. The second line is there because "Mac" alone reads as "Apple" to some visitors.
+   On anything but a Mac (the head script sets .not-mac), the note stands in for it. #}
 {% macro plaque(a) -%}
 <a class="plaque" href="{{ a.download }}" data-download="{{ a.slug }}">{{ arrowDown() | safe }}<span class="plaque-text"><span>Download for Mac</span><small>Laptops and desktops</small></span></a>
+<span class="mac-note">Visit this page on your Mac to download it.</span>
 {%- endmacro %}
 
 {% macro arrowDown() -%}

@@ -459,6 +459,11 @@ main { flex: 1; }
 .plaque-text { display: grid; line-height: 1.2; }
 .plaque-text small { font-size: 12px; font-weight: 400; letter-spacing: 0; color: color-mix(in oklab, var(--plaque-ink) 78%, var(--plaque)); }
 
+/* the platform branch, decided by the head script; fails open to the plaque */
+.mac-note { display: none; font-size: 15px; font-weight: 600; color: var(--ink); }
+.not-mac .plaque { display: none; }
+.not-mac .mac-note { display: inline; }
+
 /* ---------- room ---------- */
 
 .room-head {

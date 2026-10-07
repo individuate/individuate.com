@@ -286,6 +286,7 @@ The one filled object on any wall, mounted like a small engraved plate.
 - **Fill:** `--plaque` with `--plaque-ink` lettering, 600 at 15px, a 16px stroke icon leading, padding 13px 20px 13px 18px. A second line, "Laptops and desktops", sits beneath at 400 12px in `--plaque-ink` mixed 78% into the plaque, so no one reads "Mac" as "iPhone". One macro (`plaque` in `macros.njk`) draws every plaque.
 - **Hover / Active:** lifts 1px with a deeper shadow over 0.4s; returns flat on press.
 - **Use:** "Download for Mac" in a room head, beside a soft-ink note of the requirement and the app's `note` ("No account needed" unless the app sets its own, e.g. Love Your Food Plan's "No subscription"; never a pricing claim an app's repo forbids). Unreleased apps get no plaque; they show the brass state line instead.
+- **Platform:** a blocking head script sets `.not-mac` on `<html>` for anything that isn't a Mac (iPadOS says "MacIntel" but has touch points, so touch counts against it). There the plaque gives way to "Visit this page on your Mac to download it." in 600 ink. It reads the platform, never the viewport, and fails open: no script or no signal shows the plaque.
 
 ### Tombstone label (signature)
 Identical anatomy wherever a work hangs, in this order:
