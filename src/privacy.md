@@ -3,7 +3,7 @@ layout: info.njk
 title: Privacy
 heading: Privacy
 sub: "One policy for every app in the collection, and for this website."
-updated: 2026-10-05
+updated: 2026-10-10
 ---
 {%- from "macros.njk" import appHead, jump -%}
 <p class="meta">Updated {{ updated | longDate }}</p>
@@ -18,9 +18,29 @@ No Individuate app has advertising, sells or shares your data, or tracks you acr
 
 ## Anonymous usage signals
 
-Every app, and this website, uses [TelemetryDeck](https://telemetrydeck.com/privacy/) to count things like "the app launched" or "a recipe was generated." The counts show which features get used and when something breaks.
+Every app, and this website, uses the privacy-friendly analytics service TelemetryDeck (provider: TelemetryDeck GmbH, Von-der-Tann-Str. 54, 86159 Augsburg, Germany) to count things like "the app launched" or "a recipe was generated." The counts show which features get used and when something breaks. The use is based on Art. 6 para. 1 lit. b GDPR: Individuate requires reliable and efficient tools for collecting app usage data in order to fulfill the contract with you, the customer.
 
-Signals never include your name, your email address, or anything you make or type in an app. That means no recipes, chords, writing, health data, or affirmations. Each install is identified only by a random, hashed ID. There are no cookies and no advertising identifiers.
+### What data is transferred?
+
+The data processed by TelemetryDeck is completely anonymized and does not allow any conclusions to be drawn about personal information. The following data is collected, among other things:
+
+- an anonymized, untraceable user ID (per app installation),
+- actions defined by the app publisher (e.g., "app launched," "settings opened"),
+- a rounded timestamp (to the nearest hour),
+- device metadata (e.g., system version, app version, device type),
+- additional metadata defined by the app publisher (e.g., "number of items in the database").
+
+Signals never include your name, your email address, or anything you make or type in an app. That means no recipes, chords, writing, health data, or affirmations.
+
+### What is not stored?
+
+- No IP addresses (not in logs, not in the database),
+- no cookies, advertising identifiers, or tracking technologies,
+- no persistent identifiers that could be traced back to individuals.
+
+The source code of the TelemetryDeck SDK is completely open source and available on GitHub: [github.com/TelemetryDeck](https://github.com/TelemetryDeck)
+
+Further information on the exact data processing by TelemetryDeck can be found at [telemetrydeck.com/privacy](https://telemetrydeck.com/privacy) and at [telemetrydeck.com/docs/guides/privacy-faq](https://telemetrydeck.com/docs/guides/privacy-faq/).
 
 ## Updates, purchases, and email
 
@@ -29,6 +49,18 @@ Signals never include your name, your email address, or anything you make or typ
 **Purchases.** When you buy something through the App Store or Mac App Store, Apple processes the payment. Individuate receives no payment details, only Apple's confirmation of the purchase. Affirmable also counts a purchase among its anonymous usage signals, with the price and currency.
 
 **Email you send.** If you write to support, or send a note with an app's feedback option, your message reaches Individuate by email, and only when you send it.
+
+{{ appHead(apps | app("affirmable")) }}
+
+**On your iPhone and iPad.** Your affirmations, which ones are shown, your reminder times, and settings. A shared container lets the app's widgets show them on your Home Screen and in StandBy.
+
+**In your iCloud, if you use iCloud.** Affirmable syncs through your private iCloud database so your affirmations appear on your other devices. That data belongs to your Apple Account, is protected by Apple, and isn't visible to Individuate.
+
+**Sharing.** If you share an affirmation, it goes wherever you send it, and only when you send it.
+
+**Removing your data.** Delete an affirmation in the app and it's removed everywhere it has synced. To remove all iCloud data, open Settings ▸ [your name] ▸ iCloud ▸ Manage Account Storage ▸ Affirmable.
+
+{# REVIEW: confirm reminders/notifications are local-only, and the TelemetryDeck signals once 2.0's are final. #}
 
 {{ appHead(apps | app("foodplan")) }}
 
@@ -67,18 +99,6 @@ Signals never include your name, your email address, or anything you make or typ
 **Food data, optional.** Nutrition lookups go to the USDA's FoodData Central.
 
 {# REVIEW: SteadyTending is unreleased. Confirm exactly which data each Claude feature sends, whether search terms can include personal context, the final TelemetryDeck signal list, the update mechanism, notification email (Resend), and purchase handling before publishing. #}
-
-{{ appHead(apps | app("affirmable")) }}
-
-**On your iPhone and iPad.** Your affirmations, which ones are shown, your reminder times, and settings. A shared container lets the app's widgets show them on your Home Screen and in StandBy.
-
-**In your iCloud, if you use iCloud.** Affirmable syncs through your private iCloud database so your affirmations appear on your other devices. That data belongs to your Apple Account, is protected by Apple, and isn't visible to Individuate.
-
-**Sharing.** If you share an affirmation, it goes wherever you send it, and only when you send it.
-
-**Removing your data.** Delete an affirmation in the app and it's removed everywhere it has synced. To remove all iCloud data, open Settings ▸ [your name] ▸ iCloud ▸ Manage Account Storage ▸ Affirmable.
-
-{# REVIEW: confirm reminders/notifications are local-only, and the TelemetryDeck signals once 2.0's are final. #}
 
 ## This website
 
