@@ -32,7 +32,7 @@ Individuate makes targeted software for individuals: small, focused apps, mostly
 ## Operating Context
 
 - **Domain plan (confirmed): the mothership is canonical.** Each app's domain (e.g. `loveyourfoodplan.com`, `music-prism.com`, and future ones) will 301-redirect to `individuate.com/<app>`. The existing standalone sites move in over time, and nothing is forced on day one.
-- **URL shape (confirmed):** `/foodplan`, `/musicprism`, `/proseprimer`, `/affirmable`, plus shared `/support` and `/privacy` with `#<app>` sections. The earlier `/<app>/support` and `/<app>/privacy` redirect there.
+- **URL shape (confirmed):** `/foodplan`, `/musicprism`, `/proseprimer`, `/affirmable`, plus shared `/support` and `/privacy` with `#<app>` sections. The earlier `/<app>/support` and `/<app>/privacy` redirect there, and so do `/support/<app>` and `/privacy/<app>` (Affirmable's App Store listing uses `/support/affirmable`).
 - **Downloads and auto-update stay where they are.** The `individuate/loveyourfoodplan.com` and `individuate/music-prism.com` repos host the signed `.dmg` releases and the Sparkle `appcast.xml`. Every installed copy's `SUFeedURL` points there. Those repos must never be deleted or renamed, and their releases must never be moved, even after their HTML moves to individuate.com. Download buttons link to `github.com/individuate/<repo>/releases/latest/download/<App>.dmg`.
 - Distribution today is direct download (signed, notarized `.dmg` + Sparkle). App Store distribution may be added later, and Affirmable is App Store–only.
 
