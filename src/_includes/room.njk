@@ -13,7 +13,7 @@ layout: base.njk
     <div class="label">
       <p class="lede">{{ lede | safe }}</p>
       <p class="tomb"><span class="title">{{ a.name }}</span><span class="medium" style="display:block">{{ a.medium }}</span></p>
-      {% if a.status == "available" and a.download %}
+      {% if a.status == "available" and (a.download or a.appStore) %}
         <div class="actions">
           {{ plaque(a) }}
           <span class="note">{% for r in a.requires %}{{ r[0] }} {{ r[1] }}{% endfor %} · {{ a.note or "No account needed" }}</span>

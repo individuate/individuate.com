@@ -482,6 +482,10 @@ main { flex: 1; }
 .not-mac .plaque { display: none; }
 .not-mac .mac-note { display: inline; }
 
+/* Apple's badge, for App Store apps: its own artwork, never restyled */
+.store-badge { display: inline-flex; }
+.store-badge img { display: block; height: 48px; width: auto; }
+
 /* ---------- room ---------- */
 
 .room-head {

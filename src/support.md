@@ -98,4 +98,4 @@ Open About (the **i** in your list). Typeface offers New York, Optima, Noteworth
 
 ### I had the original Affirmable. What happens now?
 
-Affirmable 2.0, rebuilt from the ground up, is with Apple for review and will arrive as a free update. The affirmations you kept in the original come along the first time 2.0 opens, and writing, editing, and reminders are unlocked free for everyone who had the original.
+Update to Affirmable 2.0 from the App Store; it's a free update, rebuilt from the ground up. The affirmations you kept in the original come along the first time 2.0 opens, in the order you kept them. Writing, editing, and reminders are unlocked free for everyone who had the original, and your other devices unlock too, through iCloud.

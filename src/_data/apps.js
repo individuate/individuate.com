@@ -1,6 +1,7 @@
 // The collection. One entry per app; every page reads from here.
 // status: "available" | "in-progress" | "new-edition"
 // Only state what each app's own repo confirms. No prices, no invented dates.
+// download: a Mac app's .dmg; appStore: an App Store listing. Either one puts a plaque (or Apple's badge) in the room.
 // note: the line beside the download plaque (default "No account needed").
 // account, subscription: Particulars rows (account defaults to "None"; subscription shows only when set).
 
@@ -13,8 +14,9 @@ export default [
     requires: [["iOS & iPadOS", "26 or later"]],
     passion: "self-talk",
     line: "Affirmations to keep close, from many traditions, right on your Home Screen.",
-    status: "new-edition",
-    stateLabel: "In App Store review",
+    status: "available",
+    stateLabel: "On the App Store",
+    appStore: "https://apps.apple.com/app/id792864321",
     icon: "/assets/img/affirmable-icon.webp",
     iconShape: "ios",
   },

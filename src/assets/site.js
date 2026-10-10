@@ -192,7 +192,7 @@
   plates.forEach((p) => { near.observe(p); seen.observe(p); });
 })();
 
-// Downloads leave for GitHub, so a page view can't tell us one happened.
+// Downloads leave for GitHub or the App Store, so a page view can't tell us one happened.
 document.querySelectorAll("[data-download]").forEach((a) =>
   a.addEventListener("click", () => {
     window.TelemetryDeck?.signal("downloadClicked", { app: a.dataset.download });

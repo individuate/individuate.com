@@ -45,7 +45,7 @@ The apps, as of 2026-10-05:
 | Love Your Food Plan | macOS (Windows possible someday) | SwiftUI (confirmed; not Tauri) | Direct download | Shipping |
 | Music Prism | macOS (Windows possible) | Tauri | Direct download, free | Shipping |
 | Prose Primer | macOS | Swift | Direct download (planned) | Not yet released |
-| Affirmable | iOS & iPadOS | Swift | App Store | 2.0 submitted for App Store review (2026-10-07); the original shipped ~2014. No App Store URL on the site until it's live |
+| Affirmable | iOS & iPadOS | Swift | App Store | 2.0 approved 2026-10-10 and released on the existing listing (apps.apple.com/app/id792864321); the original shipped ~2014 |
 | SteadyTending | macOS 15+ | Tauri | Direct download (planned; releases at `individuate/steadytending.com`) | Listed as in progress (owner, 2026-10-05). Its own repo's PRODUCT.md binds claims: not a medical device, no wellness clichés, no publishing personal health data |
 
 - Support contact: **support@individuate.com**, one address for all apps. Music Prism's shipped feedback composer targets `hello@individuate.com`, so both addresses must reach the owner.
