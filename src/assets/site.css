@@ -879,6 +879,7 @@ main { flex: 1; }
   border-radius: 13.7% / 6.3%;
   box-shadow: 0 1px 2px rgb(var(--shadow) / .25), 0 22px 40px -16px rgb(var(--shadow) / .5);
 }
+.diptych .panels.watch img { border-radius: 19% / 16%; }
 .diptych .panels img:nth-child(2) { margin-top: 12%; }
 .diptych figcaption { margin-top: 22px; }
 .diptych h2 { font-size: clamp(26px, 2.4vw, 32px); font-weight: 300; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 14px; }

@@ -36,6 +36,10 @@ Anonymous usage counts, and only what you ask for beyond that. The [privacy poli
 
 Touch and hold an empty area of your Home Screen until the apps jiggle, tap Edit ▸ Add Widget, and choose Affirmable.
 
+### How do I put an affirmation on my watch face?
+
+Install Affirmable on your Apple Watch, then touch and hold your watch face, tap Edit, and choose Affirmable for one of its complications. To hide it whenever your wrist is down, open the Watch app on your iPhone, go to Display & Brightness ▸ Always On ▸ Show Complication Data, and turn it off for Affirmable.
+
 ### Do my affirmations sync between devices?
 
 Yes, through your own iCloud account, when iCloud is turned on for Affirmable. Individuate never sees them.
@@ -46,15 +50,15 @@ No. Reminders are set on each device, so you choose where you're reminded and yo
 
 ### What does unlocking writing and editing include?
 
-Affirmable comes with thirty-six affirmations to choose from. The unlock lets you add your own, edit or delete any in your list, and get reminders. It's one purchase, not a subscription. It works on every device signed in to the same Apple Account and is shared through Family Sharing. If it doesn't show as unlocked, open About (the **i** in your list) and tap Restore Purchases.
+Affirmable comes with thirty-six affirmations to choose from. The unlock lets you add your own, edit or delete any in your list, and get reminders. It's one purchase, not a subscription. It works on every device signed in to the same Apple Account and is shared through Family Sharing. If it doesn't show as unlocked, open Settings (the gear in your list) and tap Restore Purchases.
 
-### How do I change the typeface or the voice that reads aloud?
+### How do I change the colors, the typeface, or the voice that reads aloud?
 
-Open About (the **i** in your list). Typeface offers New York, Optima, Noteworthy, and Rounded, and the widgets follow your choice. Read Aloud Voice uses your Spoken Content voice from Settings ▸ Accessibility ▸ Spoken Content, or your own Personal Voice if you've made one and allow Affirmable to use it.
+Open Settings (the gear in your list). Colors offers five themes, Garden, Tide, Fig, Redwood, and Stone, each in light and dark. Typeface offers New York, Optima, Noteworthy, and Rounded. The widgets follow both. Read Aloud Voice uses your Spoken Content voice from Settings ▸ Accessibility ▸ Spoken Content, or your own Personal Voice if you've made one and allow Affirmable to use it.
 
 ### I had the original Affirmable. What happens now?
 
-Update to Affirmable 2.0 from the App Store; it's a free update, rebuilt from the ground up. The affirmations you kept in the original come along the first time 2.0 opens, in the order you kept them. Writing, editing, and reminders are unlocked free for everyone who had the original, and your other devices unlock too, through iCloud.
+Update Affirmable from the App Store; it's a free update, rebuilt from the ground up. The affirmations you kept in the original come along the first time the new version opens, in the order you kept them. Writing, editing, and reminders are unlocked free for everyone who had the original, and your other devices unlock too, through iCloud.
 
 {{ appHead(apps | app("foodplan")) }}
 

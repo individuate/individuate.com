@@ -10,10 +10,10 @@ export default [
     slug: "affirmable",
     wall: "#d2ae52", // matches [data-room="affirmable"] --wall in site.css
     name: "Affirmable",
-    medium: "iOS & iPadOS",
-    requires: [["iOS & iPadOS", "26 or later"]],
+    medium: "iOS, iPadOS & watchOS",
+    requires: [["iOS, iPadOS & watchOS", "26 or later"]],
     passion: "self-talk",
-    line: "Affirmations to keep close, from many traditions, right on your Home Screen.",
+    line: "Affirmations to keep close, from many traditions, on your Home Screen and your wrist.",
     status: "available",
     stateLabel: "On the App Store",
     appStore: "https://apps.apple.com/app/id792864321",

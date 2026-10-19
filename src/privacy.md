@@ -52,7 +52,7 @@ Further information on the exact data processing by TelemetryDeck can be found a
 
 {{ appHead(apps | app("affirmable")) }}
 
-**On your iPhone and iPad.** Your affirmations, which ones are shown, your reminder times, and settings. A shared container lets the app's widgets show them on your Home Screen and in StandBy.
+**On your iPhone, iPad, and Apple Watch.** Your affirmations, which ones are shown, your reminder times, and settings. A shared container lets the app's widgets show them on your Home Screen and in StandBy. Your iPhone also sends the affirmations shown on your cards straight to your paired Apple Watch, so its watch face stays current.
 
 **In your iCloud, if you use iCloud.** Affirmable syncs through your private iCloud database so your affirmations appear on your other devices. That data belongs to your Apple Account, is protected by Apple, and isn't visible to Individuate.
 
