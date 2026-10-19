@@ -393,12 +393,15 @@ main { flex: 1; }
   filter:
     drop-shadow(0 2px 2px rgb(var(--shadow) / .35))
     drop-shadow(0 22px 26px rgb(var(--shadow) / .45));
-  transition: transform .7s var(--ease), filter .7s var(--ease);
+  transition: filter .7s var(--ease);
 }
 /* iOS icons ship full-bleed; macOS icons carry Apple's grid margin. Match them. */
 .work.ios { width: 80.5%; height: 80.5%; border-radius: 22.4%; }
 
-.piece:hover .work, .piece:focus-visible .work { transform: translateY(-3px); }
+/* The frame lifts, not the icon: a browser that gives the moving icon a layer of its own
+   can cut that layer at the icon's edges, and its drop shadow with it. */
+.piece .frame { transition: transform .7s var(--ease); }
+.piece:hover .frame, .piece:focus-visible .frame { transform: translateY(-3px); }
 
 /* attention: the attended work's light comes up, the rest of the room dims */
 .hang:has(.piece:hover, .piece:focus-visible) .piece:not(:hover, :focus-visible) .light { opacity: .25; }
